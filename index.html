@@ -15,8 +15,8 @@
       margin: 0;
       min-height: 100%;
       font-family: Arial, Helvetica, sans-serif;
+      background: #02030b;
       color: white;
-      background: #03030b;
       overflow-x: hidden;
     }
 
@@ -24,7 +24,11 @@
       min-height: 100vh;
     }
 
-    /* NEON ARKA PLAN */
+
+    /* =========================
+       ARKA PLAN
+    ========================== */
+
     .background {
       position: fixed;
       inset: 0;
@@ -32,243 +36,356 @@
       z-index: 0;
 
       background:
-        radial-gradient(circle at 50% 25%,
-          rgba(0, 190, 255, 0.16),
-          transparent 27%),
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(0, 190, 255, 0.18),
+          transparent 30%
+        ),
 
-        radial-gradient(circle at 15% 55%,
-          rgba(255, 0, 200, 0.12),
-          transparent 25%),
+        radial-gradient(
+          circle at 82% 45%,
+          rgba(255, 0, 200, 0.15),
+          transparent 32%
+        ),
 
-        radial-gradient(circle at 85% 65%,
-          rgba(85, 0, 255, 0.16),
-          transparent 28%),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(80, 30, 255, 0.20),
+          transparent 38%
+        ),
 
         linear-gradient(
           180deg,
-          #070716 0%,
-          #03030b 65%,
-          #070414 100%
+          #041120 0%,
+          #050416 45%,
+          #080313 100%
         );
     }
 
-    /* YAVAŞ HAREKET EDEN NEON BULUTLAR */
+
+    /* =========================
+       NEON BULUTLAR
+    ========================== */
+
     .glow {
       position: absolute;
-      width: 500px;
-      height: 500px;
       border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.26;
-      animation: floatGlow 10s ease-in-out infinite alternate;
+      filter: blur(110px);
+      opacity: 0.28;
+      pointer-events: none;
     }
 
-    .glow.blue {
-      background: #00c8ff;
-      left: -180px;
-      top: -120px;
+    .glow-blue {
+      width: 520px;
+      height: 520px;
+
+      background: #00bfff;
+
+      top: -200px;
+      left: -160px;
+
+      animation: glowBlue 11s ease-in-out infinite alternate;
     }
 
-    .glow.pink {
-      background: #ff00b7;
-      right: -200px;
+    .glow-pink {
+      width: 550px;
+      height: 550px;
+
+      background: #ff00bf;
+
+      right: -220px;
       top: 20%;
-      animation-delay: -4s;
+
+      animation: glowPink 13s ease-in-out infinite alternate;
     }
 
-    .glow.purple {
-      background: #6a33ff;
-      left: 30%;
-      bottom: -280px;
-      animation-delay: -7s;
+    .glow-purple {
+      width: 650px;
+      height: 650px;
+
+      background: #5c2cff;
+
+      left: 25%;
+      bottom: -400px;
+
+      animation: glowPurple 15s ease-in-out infinite alternate;
     }
 
-    @keyframes floatGlow {
+    @keyframes glowBlue {
       from {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0);
       }
 
       to {
-        transform: translate(70px, 60px) scale(1.15);
+        transform: translate(100px, 80px);
       }
     }
 
-    /* ARKA PLANDAKİ SABİT YILDIZLAR */
-    .tiny-stars {
+    @keyframes glowPink {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-120px, 60px);
+      }
+    }
+
+    @keyframes glowPurple {
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(70px, -80px);
+      }
+    }
+
+
+    /* =========================
+       KÜÇÜK UZAK YILDIZLAR
+    ========================== */
+
+    .stars {
       position: absolute;
       inset: 0;
-
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.85) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(0,200,255,.65) 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(255,0,200,.55) 1px, transparent 1.5px);
-
-      background-size:
-        95px 95px,
-        130px 130px,
-        170px 170px;
-
-      background-position:
-        20px 40px,
-        60px 80px,
-        100px 20px;
-
-      opacity: .3;
-
-      animation: starsMove 18s linear infinite;
+      overflow: hidden;
     }
 
-    @keyframes starsMove {
+    .star {
+      position: absolute;
+
+      width: 2px;
+      height: 2px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      opacity: 0.5;
+
+      box-shadow:
+        0 0 4px rgba(255, 255, 255, 0.8);
+
+      animation: twinkle 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes twinkle {
       from {
-        transform: translateY(0);
+        opacity: 0.15;
+        transform: scale(0.7);
       }
 
       to {
-        transform: translateY(80px);
+        opacity: 0.9;
+        transform: scale(1.3);
       }
     }
 
-    /* KAYIP GİDEN YILDIZLAR */
-    .shooting-star {
+
+    /* =========================
+       KAYAN YILDIZ
+    ========================== */
+
+    .meteor {
       position: absolute;
 
-      width: 140px;
+      width: 190px;
       height: 2px;
 
-      background:
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0),
-          #ffffff,
-          #00d9ff,
-          rgba(0,217,255,0)
-        );
+      left: -250px;
 
-      border-radius: 100%;
+      border-radius: 999px;
 
       opacity: 0;
 
-      filter:
-        drop-shadow(0 0 5px #00d9ff)
-        drop-shadow(0 0 12px #006eff);
+      pointer-events: none;
 
-      transform: rotate(-35deg);
+      transform: rotate(28deg);
 
-      animation: shoot 6s linear infinite;
-    }
-
-    .shooting-star.pink {
       background:
         linear-gradient(
           90deg,
-          rgba(255,255,255,0),
-          #ffffff,
-          #ff4ddd,
-          rgba(255,77,221,0)
+          transparent 0%,
+          rgba(0, 220, 255, 0.03) 15%,
+          rgba(0, 220, 255, 0.10) 35%,
+          rgba(0, 220, 255, 0.30) 60%,
+          rgba(110, 240, 255, 0.75) 85%,
+          white 100%
         );
 
       filter:
-        drop-shadow(0 0 5px #ff4ddd)
-        drop-shadow(0 0 12px #ff008c);
+        drop-shadow(0 0 3px rgba(0, 220, 255, 0.9))
+        drop-shadow(0 0 7px rgba(0, 150, 255, 0.7));
+
+      animation: meteorMove 2.8s linear forwards;
     }
 
-    .s1 {
-      top: 10%;
-      left: -20%;
-      animation-delay: 0s;
+
+    /* Yıldızın öndeki parlak noktası */
+    .meteor::after {
+      content: "";
+
+      position: absolute;
+
+      right: -2px;
+      top: 50%;
+
+      width: 5px;
+      height: 5px;
+
+      transform: translateY(-50%);
+
+      border-radius: 50%;
+
+      background: white;
+
+      box-shadow:
+        0 0 5px white,
+        0 0 10px #00ddff,
+        0 0 18px #008cff;
     }
 
-    .s2 {
-      top: 28%;
-      left: -25%;
-      animation-delay: 2.4s;
+
+    /* Pembe kayan yıldız */
+    .meteor.pink {
+      background:
+        linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 0, 190, 0.03) 15%,
+          rgba(255, 0, 190, 0.10) 35%,
+          rgba(255, 0, 190, 0.30) 60%,
+          rgba(255, 100, 225, 0.75) 85%,
+          white 100%
+        );
+
+      filter:
+        drop-shadow(0 0 3px rgba(255, 0, 190, 0.9))
+        drop-shadow(0 0 7px rgba(255, 0, 140, 0.7));
     }
 
-    .s3 {
-      top: 55%;
-      left: -25%;
-      animation-delay: 4.5s;
+    .meteor.pink::after {
+      box-shadow:
+        0 0 5px white,
+        0 0 10px #ff34ce,
+        0 0 18px #ff0088;
     }
 
-    .s4 {
-      top: 78%;
-      left: -20%;
-      animation-delay: 1.2s;
-    }
 
-    .s5 {
-      top: 40%;
-      left: -25%;
-      animation-delay: 7s;
-    }
-
-    @keyframes shoot {
+    @keyframes meteorMove {
       0% {
-        transform:
-          translate(-150px, -80px)
-          rotate(-35deg);
-
         opacity: 0;
+        transform:
+          translate(-100px, -60px)
+          rotate(28deg);
       }
 
       8% {
         opacity: 1;
       }
 
-      25% {
+      70% {
         opacity: 1;
-      }
-
-      42% {
-        transform:
-          translate(125vw, 70vh)
-          rotate(-35deg);
-
-        opacity: 0;
       }
 
       100% {
         opacity: 0;
+
+        transform:
+          translate(135vw, 65vh)
+          rotate(28deg);
       }
     }
 
-    /* ANA İÇERİK */
+
+    /* =========================
+       ANA SAYFA
+    ========================== */
+
     .page {
       position: relative;
-      z-index: 10;
+      z-index: 5;
 
       max-width: 900px;
 
+      min-height: 100vh;
+
       margin: auto;
 
-      padding:
-        70px 20px
-        60px;
+      padding: 65px 20px 60px;
 
       text-align: center;
     }
 
-    /* OYUN SİMGESİ */
+
+    /* =========================
+       OYUN SİMGESİ
+    ========================== */
+
+    .icon-wrap {
+      position: relative;
+
+      display: inline-block;
+
+      margin-bottom: 15px;
+    }
+
+    .icon-wrap::before {
+      content: "";
+
+      position: absolute;
+
+      inset: -25px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0, 220, 255, 0.30),
+          rgba(255, 0, 200, 0.12),
+          transparent 70%
+        );
+
+      filter: blur(20px);
+
+      animation: iconPulse 3s ease-in-out infinite alternate;
+
+      z-index: -1;
+    }
+
+    @keyframes iconPulse {
+      from {
+        transform: scale(0.9);
+        opacity: 0.6;
+      }
+
+      to {
+        transform: scale(1.15);
+        opacity: 1;
+      }
+    }
+
     .game-icon {
+      display: block;
+
       width: 180px;
       height: 180px;
 
       object-fit: cover;
 
-      border-radius: 38px;
+      border-radius: 36px;
 
       border:
-        2px solid
-        rgba(0, 220, 255, 0.4);
+        1px solid rgba(0, 225, 255, 0.65);
 
       box-shadow:
-        0 0 20px rgba(0, 220, 255, .45),
-        0 0 50px rgba(0, 120, 255, .25),
-        0 0 80px rgba(255, 0, 200, .20);
+        0 0 10px rgba(0, 220, 255, 0.8),
+        0 0 30px rgba(0, 150, 255, 0.45),
+        0 0 55px rgba(255, 0, 200, 0.28);
 
-      animation:
-        iconFloat 3.5s
-        ease-in-out infinite;
+      animation: iconFloat 3.8s ease-in-out infinite;
     }
 
     @keyframes iconFloat {
@@ -277,162 +394,144 @@
       }
 
       50% {
-        transform: translateY(-10px);
+        transform: translateY(-12px);
       }
     }
 
+
+    /* =========================
+       BAŞLIK
+    ========================== */
+
     h1 {
-      margin:
-        35px 0 5px;
+      margin: 25px 0 8px;
 
       font-size:
         clamp(
-          55px,
-          10vw,
+          52px,
+          9vw,
           100px
         );
 
       font-weight: 900;
 
-      letter-spacing:
-        -4px;
+      letter-spacing: -3px;
+
+      line-height: 0.95;
 
       background:
         linear-gradient(
           90deg,
-          #ffffff,
-          #00d5ff,
-          #ff44df,
-          #ffffff
+          #ffffff 0%,
+          #65eaff 25%,
+          #00c7ff 45%,
+          #ff42d0 70%,
+          #ffffff 100%
         );
 
-      background-size:
-        300% auto;
+      background-size: 300% auto;
 
-      -webkit-background-clip:
-        text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
 
-      -webkit-text-fill-color:
-        transparent;
-
-      animation:
-        titleFlow 6s linear infinite;
+      animation: titleGlow 6s linear infinite;
 
       filter:
         drop-shadow(
-          0 0 18px
-          rgba(0, 190, 255, .25)
+          0 0 17px
+          rgba(0, 200, 255, 0.22)
         );
     }
 
-    @keyframes titleFlow {
+    @keyframes titleGlow {
       to {
-        background-position:
-          300% center;
+        background-position: 300% center;
       }
     }
 
+
     .tagline {
-      color: #c7c4da;
+      margin-top: 18px;
+
+      color: #d0cede;
 
       font-size:
         clamp(
-          16px,
-          3vw,
-          22px
+          14px,
+          2.5vw,
+          20px
         );
 
-      letter-spacing:
-        5px;
+      letter-spacing: 5px;
 
-      text-transform:
-        uppercase;
-
-      margin-bottom:
-        45px;
+      text-transform: uppercase;
     }
+
 
     .description {
-      max-width:
-        620px;
+      max-width: 650px;
 
-      margin:
-        0 auto 45px;
+      margin: 42px auto;
 
-      font-size:
-        18px;
+      color: #b1afc0;
 
-      line-height:
-        1.7;
+      font-size: 17px;
 
-      color:
-        #aaa8bb;
+      line-height: 1.8;
     }
 
-    /* CAM EFEKTLİ KART */
+
+    /* =========================
+       KART
+    ========================== */
+
     .card {
-      max-width:
-        650px;
+      position: relative;
 
-      margin:
-        auto;
+      max-width: 650px;
 
-      padding:
-        38px 28px;
+      margin: 0 auto;
 
-      border-radius:
-        24px;
+      padding: 38px 30px;
+
+      overflow: hidden;
+
+      border-radius: 24px;
 
       background:
         rgba(
-          15,
-          15,
-          35,
-          .62
+          8,
+          9,
+          29,
+          0.72
         );
 
       border:
         1px solid
         rgba(
-          92,
-          207,
+          0,
+          190,
           255,
-          .20
+          0.20
         );
 
-      backdrop-filter:
-        blur(18px);
+      backdrop-filter: blur(18px);
 
       box-shadow:
-        0 20px 70px
+        0 25px 80px
         rgba(
           0,
           0,
           0,
-          .55
-        ),
-
-        inset 0 0 40px
-        rgba(
-          0,
-          170,
-          255,
-          .035
+          0.55
         );
-
-      position:
-        relative;
-
-      overflow:
-        hidden;
     }
 
-    /* KARTIN NEON ÜST ÇİZGİSİ */
+
     .card::before {
       content: "";
 
-      position:
-        absolute;
+      position: absolute;
 
       top: 0;
       left: 10%;
@@ -444,75 +543,78 @@
         linear-gradient(
           90deg,
           transparent,
-          #00d9ff,
+          #00ddff,
           #ff00c8,
           transparent
         );
 
       box-shadow:
-        0 0 18px
-        #00cfff;
+        0 0 15px
+        rgba(
+          0,
+          220,
+          255,
+          0.8
+        );
     }
+
 
     .card h2 {
       margin-top: 0;
 
-      font-size:
-        28px;
+      font-size: 28px;
     }
+
 
     .card p {
-      color:
-        #b8b5ca;
+      color: #bbb8cc;
 
-      line-height:
-        1.6;
+      line-height: 1.7;
     }
 
+
+    /* =========================
+       BUTON
+    ========================== */
+
     .button {
-      display:
-        inline-block;
+      display: inline-block;
 
-      margin-top:
-        15px;
+      margin-top: 18px;
 
-      padding:
-        15px 30px;
+      padding: 15px 30px;
 
-      border-radius:
-        14px;
+      border-radius: 14px;
 
-      color:
-        white;
+      color: white;
 
-      text-decoration:
-        none;
+      text-decoration: none;
 
-      font-weight:
-        bold;
+      font-weight: bold;
 
       background:
         linear-gradient(
           135deg,
-          #007aff,
-          #7a43ff,
-          #ff29c3
+          #008cff,
+          #663cff,
+          #ff28bd
         );
 
-      background-size:
-        200%;
+      background-size: 200%;
 
       box-shadow:
         0 10px 35px
         rgba(
-          80,
-          50,
+          70,
+          70,
           255,
-          .35
+          0.35
         );
 
       transition:
-        .25s ease;
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-position 0.25s ease;
     }
 
     .button:hover {
@@ -520,162 +622,294 @@
         translateY(-4px)
         scale(1.03);
 
-      box-shadow:
-        0 15px 45px
-        rgba(
-          0,
-          200,
-          255,
-          .35
-        );
-
       background-position:
         right center;
+
+      box-shadow:
+        0 15px 50px
+        rgba(
+          0,
+          210,
+          255,
+          0.35
+        );
     }
+
 
     .support {
-      margin-top:
-        28px;
+      margin-top: 30px;
 
-      color:
-        #77758b;
+      color: #767487;
 
-      font-size:
-        14px;
+      font-size: 14px;
     }
+
 
     footer {
-      margin-top:
-        70px;
+      margin-top: 70px;
 
-      color:
-        #555367;
+      color: #565466;
 
-      font-size:
-        13px;
+      font-size: 13px;
     }
 
-    @media (
-      max-width: 600px
-    ) {
+
+    /* =========================
+       TELEFON
+    ========================== */
+
+    @media (max-width: 600px) {
 
       .page {
-        padding-top:
-          45px;
+        padding-top: 45px;
       }
 
       .game-icon {
-        width:
-          145px;
+        width: 145px;
+        height: 145px;
 
-        height:
-          145px;
-
-        border-radius:
-          30px;
+        border-radius: 30px;
       }
 
       h1 {
-        letter-spacing:
-          -2px;
+        letter-spacing: -2px;
       }
 
       .tagline {
-        letter-spacing:
-          3px;
+        letter-spacing: 3px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 30px 20px;
       }
     }
 
-    @media (
-      prefers-reduced-motion:
-      reduce
-    ) {
+
+    @media (prefers-reduced-motion: reduce) {
 
       *,
       *::before,
       *::after {
-
-        animation-duration:
-          .01ms !important;
-
-        animation-iteration-count:
-          1 !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
 
   </style>
 </head>
 
+
 <body>
 
-<div class="background">
 
-  <div class="tiny-stars"></div>
+  <div class="background">
 
-  <div class="glow blue"></div>
-  <div class="glow pink"></div>
-  <div class="glow purple"></div>
+    <div class="stars" id="stars"></div>
 
-  <div class="shooting-star s1"></div>
-  <div class="shooting-star pink s2"></div>
-  <div class="shooting-star s3"></div>
-  <div class="shooting-star pink s4"></div>
-  <div class="shooting-star s5"></div>
+    <div class="glow glow-blue"></div>
+    <div class="glow glow-pink"></div>
+    <div class="glow glow-purple"></div>
 
-</div>
+    <div id="meteor-container"></div>
 
-
-<main class="page">
-
-  <img
-    class="game-icon"
-    src="escape-rush-icon.png"
-    alt="Escape Rush icon"
-  >
-
-  <h1>ESCAPE RUSH</h1>
-
-  <div class="tagline">
-    Escape • Survive • Keep Moving
   </div>
 
-  <p class="description">
-    Enter a neon world where speed,
-    timing and fast reactions are everything.
-    Keep moving and escape before it's too late.
-  </p>
+
+  <main class="page">
 
 
-  <section class="card">
+    <div class="icon-wrap">
 
-    <h2>Enter the Rush</h2>
+      <img
+        class="game-icon"
+        src="escape-rush-icon.png"
+        alt="Escape Rush icon"
+      >
 
-    <p>
-      Escape Rush is a fast-paced
-      mobile game available on Android.
-    </p>
-
-    <a
-      class="button"
-      href="privacy.html"
-    >
-      Privacy Policy
-    </a>
-
-    <div class="support">
-      Support information is available
-      on the Escape Rush Google Play Store page.
     </div>
 
-  </section>
+
+    <h1>
+      ESCAPE RUSH
+    </h1>
 
 
-  <footer>
-    © 2026 Escape Rush.
-    All rights reserved.
-  </footer>
+    <div class="tagline">
+      Escape • Survive • Keep Moving
+    </div>
 
-</main>
+
+    <p class="description">
+      Enter a neon world where speed,
+      timing and fast reactions are everything.
+      Keep moving and escape before it's too late.
+    </p>
+
+
+    <section class="card">
+
+      <h2>
+        Enter the Rush
+      </h2>
+
+      <p>
+        Escape Rush is a fast-paced mobile game
+        available on Android.
+      </p>
+
+
+      <a
+        class="button"
+        href="privacy.html"
+      >
+        Privacy Policy
+      </a>
+
+
+      <div class="support">
+        Support information is available on the
+        Escape Rush Google Play Store page.
+      </div>
+
+    </section>
+
+
+    <footer>
+      © 2026 Escape Rush. All rights reserved.
+    </footer>
+
+
+  </main>
+
+
+  <script>
+
+    /* =========================
+       KÜÇÜK YILDIZLARI OLUŞTUR
+    ========================== */
+
+    const starsContainer =
+      document.getElementById("stars");
+
+    for (let i = 0; i < 100; i++) {
+
+      const star =
+        document.createElement("div");
+
+      star.className =
+        "star";
+
+      star.style.left =
+        Math.random() * 100 + "%";
+
+      star.style.top =
+        Math.random() * 100 + "%";
+
+      const size =
+        Math.random() * 1.7 + 0.7;
+
+      star.style.width =
+        size + "px";
+
+      star.style.height =
+        size + "px";
+
+      star.style.animationDelay =
+        Math.random() * 4 + "s";
+
+      star.style.animationDuration =
+        2 +
+        Math.random() * 4 +
+        "s";
+
+      starsContainer.appendChild(star);
+    }
+
+
+    /* =========================
+       KAYAN YILDIZ OLUŞTUR
+    ========================== */
+
+    const meteorContainer =
+      document.getElementById(
+        "meteor-container"
+      );
+
+
+    function createMeteor() {
+
+      const meteor =
+        document.createElement("div");
+
+      meteor.className =
+        "meteor";
+
+
+      /* Bazen pembe olsun */
+      if (Math.random() > 0.55) {
+        meteor.classList.add("pink");
+      }
+
+
+      /* Farklı yüksekliklerden geçsin */
+      meteor.style.top =
+        5 +
+        Math.random() * 60 +
+        "%";
+
+
+      /* Kuyruk boyu biraz değişsin */
+      meteor.style.width =
+        130 +
+        Math.random() * 100 +
+        "px";
+
+
+      meteorContainer.appendChild(
+        meteor
+      );
+
+
+      /* Animasyon bitince sil */
+      setTimeout(
+        function() {
+          meteor.remove();
+        },
+        3000
+      );
+    }
+
+
+    function scheduleMeteor() {
+
+      createMeteor();
+
+
+      /* Her seferinde farklı aralık */
+      const nextMeteor =
+        1600 +
+        Math.random() * 2500;
+
+
+      setTimeout(
+        scheduleMeteor,
+        nextMeteor
+      );
+    }
+
+
+    /* İlk yıldız biraz sonra gelsin */
+    setTimeout(
+      scheduleMeteor,
+      900
+    );
+
+  </script>
+
 
 </body>
 </html>
