@@ -8,24 +8,22 @@
 
   <meta
     name="description"
-    content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences."
+    content="CanCore is an independent software and digital entertainment brand creating polished apps, engaging games and memorable digital experiences."
   >
 
-  <meta name="theme-color" content="#05070b">
+  <meta name="theme-color" content="#030406">
   <link rel="icon" href="cancore-logo.png">
 
   <style>
     :root {
-      --bg: #05070b;
-      --bg2: #090d14;
-      --text: #f6f8fa;
+      --bg: #030406;
+      --bg2: #080a0f;
+      --text: #f7f9fb;
       --muted: #98a1ad;
-      --muted2: #79828d;
-      --cyan: #67dfff;
+      --cyan: #63ddff;
       --cyan2: #00bfff;
-      --violet: #8c78ff;
+      --violet: #8f78ff;
       --line: rgba(255,255,255,.085);
-      --panel: rgba(255,255,255,.038);
       --max: 1180px;
     }
 
@@ -38,40 +36,16 @@
       min-height: 100vh;
       overflow-x: hidden;
       color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
       -webkit-font-smoothing: antialiased;
-      background:
-        radial-gradient(circle at 12% 13%, rgba(0,190,255,.11), transparent 28%),
-        radial-gradient(circle at 88% 44%, rgba(123,86,255,.085), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(0,190,255,.045), transparent 34%),
-        linear-gradient(145deg, #040609 0%, #080b11 50%, #040609 100%);
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(255,255,255,.011) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.009) 1px, transparent 1px);
-      background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 88%);
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 540px;
-      height: 540px;
-      right: -260px;
-      top: 12%;
-      z-index: -1;
-      pointer-events: none;
-      border-radius: 50%;
-      filter: blur(10px);
-      background: radial-gradient(circle, rgba(89,215,255,.07), transparent 70%);
+      text-rendering: optimizeLegibility;
+      background: #030406;
     }
 
     a { color: inherit; }
@@ -81,17 +55,138 @@
       margin: 0 auto;
     }
 
+    /* =========================
+       NEW BACKGROUND
+       ========================= */
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -10;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, #030406 0%, #05070a 42%, #040509 100%);
+    }
+
+    .bg::before {
+      content: "";
+      position: absolute;
+      inset: -10%;
+      background:
+        radial-gradient(circle at 11% 18%, rgba(0, 210, 255, .19), transparent 26%),
+        radial-gradient(circle at 88% 28%, rgba(124, 77, 255, .17), transparent 28%),
+        radial-gradient(circle at 67% 78%, rgba(0, 172, 255, .10), transparent 25%);
+      filter: blur(30px);
+      animation: breathe 10s ease-in-out infinite alternate;
+    }
+
+    .bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .26;
+      background-image:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 92%);
+    }
+
+    @keyframes breathe {
+      from { transform: scale(1) translate3d(0,0,0); }
+      to { transform: scale(1.06) translate3d(18px,-10px,0); }
+    }
+
+    .aurora {
+      position: absolute;
+      left: -12%;
+      top: 18%;
+      width: 124%;
+      height: 240px;
+      opacity: .34;
+      filter: blur(38px);
+      transform: rotate(-8deg);
+      background:
+        linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 201, 255, .08) 14%,
+          rgba(0, 213, 255, .33) 35%,
+          rgba(109, 77, 255, .28) 58%,
+          rgba(190, 81, 255, .12) 74%,
+          transparent 100%
+        );
+      animation: auroraMove 13s ease-in-out infinite alternate;
+    }
+
+    @keyframes auroraMove {
+      from { transform: translateX(-2%) rotate(-8deg) scaleY(.92); }
+      to { transform: translateX(4%) rotate(-5deg) scaleY(1.08); }
+    }
+
+    .giant-mark {
+      position: absolute;
+      right: -120px;
+      top: 80px;
+      width: 620px;
+      height: 620px;
+      border-radius: 50%;
+      border: 54px solid rgba(91, 212, 255, .045);
+      box-shadow:
+        0 0 160px rgba(0,190,255,.04),
+        inset 0 0 120px rgba(134, 92, 255, .03);
+      transform: rotate(-18deg);
+    }
+
+    .giant-mark::after {
+      content: "";
+      position: absolute;
+      right: -70px;
+      top: 190px;
+      width: 210px;
+      height: 230px;
+      background: #030406;
+      transform: rotate(12deg);
+      box-shadow: -35px 0 90px rgba(0,0,0,.45);
+    }
+
+    .beam {
+      position: absolute;
+      left: 22%;
+      top: -10%;
+      width: 1px;
+      height: 130%;
+      transform: rotate(24deg);
+      background:
+        linear-gradient(
+          to bottom,
+          transparent,
+          rgba(124, 228, 255, .34),
+          rgba(156, 120, 255, .20),
+          transparent
+        );
+      box-shadow:
+        0 0 34px rgba(0, 203, 255, .20),
+        0 0 80px rgba(0, 203, 255, .08);
+      opacity: .55;
+    }
+
+    /* =========================
+       NAV
+       ========================= */
+
     nav {
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 1px solid rgba(255,255,255,.055);
-      background: rgba(5,7,11,.74);
-      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      background: rgba(4, 5, 8, .68);
+      backdrop-filter: blur(22px) saturate(145%);
     }
 
     .nav-inner {
-      min-height: 76px;
+      min-height: 78px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -104,158 +199,295 @@
       gap: 12px;
       text-decoration: none;
       font-size: 20px;
-      font-weight: 760;
-      letter-spacing: -.4px;
+      font-weight: 800;
+      letter-spacing: -.45px;
     }
 
     .brand img {
-      width: 42px;
-      height: 42px;
+      width: 43px;
+      height: 43px;
       object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 28px rgba(0,198,255,.14);
+      border-radius: 13px;
+      border: 1px solid rgba(255,255,255,.07);
+      box-shadow:
+        0 10px 28px rgba(0,0,0,.34),
+        0 0 30px rgba(0, 196, 255, .12);
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
       align-items: center;
+      gap: 30px;
     }
 
     .nav-links a {
+      position: relative;
       text-decoration: none;
-      color: #9ba4af;
+      color: #9aa3af;
       font-size: 14px;
+      font-weight: 600;
       transition: color .2s ease;
     }
 
     .nav-links a:hover { color: white; }
 
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: -9px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan), var(--violet));
+      transition: right .22s ease;
+    }
+
+    .nav-links a:hover::after { right: 0; }
+
+    /* =========================
+       HERO
+       ========================= */
+
     .hero {
-      min-height: 78vh;
+      min-height: 83vh;
       display: flex;
       align-items: center;
-      padding: 108px 0 92px;
+      padding: 110px 0 100px;
     }
 
     .hero-grid {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(0,1.1fr) minmax(300px,.9fr);
-      gap: 74px;
+      grid-template-columns: minmax(0,1.1fr) minmax(320px,.9fr);
+      gap: 82px;
       align-items: center;
     }
 
     .eyebrow {
-      margin-bottom: 23px;
-      color: #72e0ff;
-      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 24px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(103,221,255,.15);
+      background: rgba(6, 17, 23, .50);
+      color: #82e6ff;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: .20em;
+      letter-spacing: .17em;
       text-transform: uppercase;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 18px rgba(103,221,255,.6);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(58px,8.5vw,112px);
-      line-height: .89;
-      letter-spacing: -.07em;
-      font-weight: 820;
+      font-size: clamp(60px,8.8vw,116px);
+      line-height: .88;
+      letter-spacing: -.076em;
+      font-weight: 860;
       background:
-        linear-gradient(115deg,#fff 5%,#e2edf2 42%,#7fe4ff 74%,#c1b4ff 100%);
+        linear-gradient(
+          110deg,
+          #ffffff 5%,
+          #eef3f6 33%,
+          #8be8ff 66%,
+          #beaaff 100%
+        );
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      filter: drop-shadow(0 18px 38px rgba(0,0,0,.28));
     }
 
     .hero-copy {
-      max-width: 660px;
-      margin: 32px 0 0;
-      color: #959eaa;
-      font-size: clamp(18px,2vw,22px);
-      line-height: 1.66;
+      max-width: 675px;
+      margin: 34px 0 0;
+      color: #99a2ae;
+      font-size: clamp(18px,2vw,21px);
+      line-height: 1.72;
+    }
+
+    .hero-copy strong {
+      color: #edf2f5;
+      font-weight: 650;
     }
 
     .hero-actions {
-      margin-top: 38px;
+      margin-top: 40px;
       display: flex;
-      gap: 13px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .btn {
-      min-height: 50px;
-      padding: 0 23px;
+      position: relative;
+      overflow: hidden;
+      min-height: 52px;
+      padding: 0 24px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 13px;
+      gap: 9px;
+      border-radius: 14px;
       text-decoration: none;
       font-size: 14px;
-      font-weight: 760;
+      font-weight: 800;
       border: 1px solid transparent;
-      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease,
+        background .22s ease;
     }
 
-    .btn:hover { transform: translateY(-2px); }
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: -90%;
+      left: -35%;
+      width: 46%;
+      height: 280%;
+      transform: rotate(18deg);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.38),
+        transparent
+      );
+      transition: left .55s ease;
+    }
+
+    .btn:hover::before { left: 115%; }
+    .btn:hover { transform: translateY(-3px); }
 
     .btn-primary {
-      color: #061015;
-      background: linear-gradient(135deg,#c5f6ff,#65d8ff);
-      box-shadow: 0 14px 45px rgba(0,190,255,.13);
+      color: #061016;
+      background:
+        linear-gradient(135deg, #d3f8ff 0%, #65ddff 58%, #8bcbff 100%);
+      box-shadow:
+        0 15px 50px rgba(0,190,255,.18),
+        inset 0 1px 0 rgba(255,255,255,.7);
+    }
+
+    .btn-primary:hover {
+      box-shadow:
+        0 20px 62px rgba(0,190,255,.25),
+        inset 0 1px 0 rgba(255,255,255,.75);
     }
 
     .btn-secondary {
-      color: #d9dee3;
-      background: rgba(255,255,255,.025);
+      color: #dce2e7;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02));
       border-color: rgba(255,255,255,.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
     }
 
+    .btn-secondary:hover {
+      border-color: rgba(103,221,255,.25);
+      background: rgba(255,255,255,.05);
+    }
+
+    /* =========================
+       HERO LOGO
+       ========================= */
+
     .hero-visual {
-      min-height: 450px;
+      min-height: 470px;
       position: relative;
       display: grid;
       place-items: center;
     }
 
-    .hero-visual::before {
-      content: "";
+    .halo {
       position: absolute;
-      width: 390px;
-      height: 390px;
+      width: 440px;
+      height: 440px;
       border-radius: 50%;
       background:
-        radial-gradient(circle,rgba(0,205,255,.15),rgba(100,75,255,.05) 47%,transparent 72%);
-      filter: blur(15px);
+        radial-gradient(circle, rgba(0,205,255,.18), rgba(117,78,255,.06) 50%, transparent 72%);
+      filter: blur(18px);
     }
 
-    .hero-visual::after {
+    .ring {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      border: 1px solid rgba(130,225,255,.09);
+      box-shadow:
+        0 0 110px rgba(0,180,255,.05),
+        inset 0 0 80px rgba(120,82,255,.025);
+    }
+
+    .ring::before,
+    .ring::after {
       content: "";
       position: absolute;
-      width: 315px;
-      height: 315px;
       border-radius: 50%;
-      border: 1px solid rgba(130,225,255,.10);
-      box-shadow: 0 0 90px rgba(0,180,255,.06);
+      inset: 12%;
+      border: 1px solid rgba(255,255,255,.04);
+    }
+
+    .ring::after {
+      inset: 27%;
+      border-color: rgba(103,221,255,.07);
+    }
+
+    .hero-logo-card {
+      position: relative;
+      z-index: 3;
+      width: min(310px,74vw);
+      aspect-ratio: 1;
+      padding: 14px;
+      border-radius: 31%;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.018));
+      border: 1px solid rgba(255,255,255,.09);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.44),
+        0 0 50px rgba(0,200,255,.09),
+        inset 0 1px 0 rgba(255,255,255,.055);
+      backdrop-filter: blur(10px);
     }
 
     .hero-logo {
-      position: relative;
-      z-index: 2;
-      width: min(305px,75vw);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
       border-radius: 27%;
       filter:
-        drop-shadow(0 25px 55px rgba(0,0,0,.58))
-        drop-shadow(0 0 38px rgba(0,200,255,.11));
+        drop-shadow(0 18px 42px rgba(0,0,0,.45))
+        drop-shadow(0 0 28px rgba(0,200,255,.08));
     }
 
-    section { padding: 100px 0; }
+    /* =========================
+       COMMON
+       ========================= */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-head {
+      margin-bottom: 44px;
+    }
 
     .section-kicker {
       margin-bottom: 12px;
       color: var(--cyan);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: .18em;
       text-transform: uppercase;
@@ -265,18 +497,22 @@
       margin: 0;
       font-size: clamp(36px,5vw,58px);
       letter-spacing: -.045em;
+      line-height: 1.04;
     }
 
     .section-copy {
-      max-width: 730px;
+      max-width: 735px;
       margin-top: 18px;
-      color: #919aa5;
-      line-height: 1.76;
+      color: #929ba6;
       font-size: 17px;
+      line-height: 1.78;
     }
 
+    /* =========================
+       CARDS
+       ========================= */
+
     .products {
-      margin-top: 42px;
       display: grid;
       grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 22px;
@@ -285,24 +521,50 @@
     .product {
       position: relative;
       overflow: hidden;
-      min-height: 350px;
-      padding: 33px;
-      border-radius: 26px;
-      border: 1px solid var(--line);
+      min-height: 355px;
+      padding: 34px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.085);
       background:
-        linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.016));
-      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+        linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.018));
+      box-shadow:
+        0 32px 90px rgba(0,0,0,.27),
+        inset 0 1px 0 rgba(255,255,255,.035);
+      backdrop-filter: blur(10px);
+      transition:
+        transform .24s ease,
+        border-color .24s ease,
+        box-shadow .24s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+      border-color: rgba(103,221,255,.17);
+      box-shadow:
+        0 42px 118px rgba(0,0,0,.34),
+        0 0 70px rgba(0,190,255,.04);
     }
 
     .product::before {
       content: "";
       position: absolute;
-      width: 270px;
-      height: 270px;
-      right: -100px;
-      top: -100px;
+      width: 290px;
+      height: 290px;
+      right: -120px;
+      top: -120px;
       border-radius: 50%;
-      background: radial-gradient(circle,rgba(0,190,255,.11),transparent 70%);
+      background:
+        radial-gradient(circle, rgba(0,190,255,.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .product::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(125deg, transparent 30%, rgba(255,255,255,.018), transparent 72%);
     }
 
     .product-top {
@@ -314,17 +576,19 @@
     }
 
     .game-icon {
-      width: 80px;
-      height: 80px;
+      width: 82px;
+      height: 82px;
       object-fit: cover;
-      border-radius: 21px;
+      border-radius: 22px;
       border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 14px 36px rgba(0,0,0,.35);
+      box-shadow:
+        0 14px 36px rgba(0,0,0,.35),
+        0 0 28px rgba(0,190,255,.05);
     }
 
     .type {
       margin-bottom: 7px;
-      color: #67ddff;
+      color: #71e2ff;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .15em;
@@ -333,29 +597,23 @@
 
     .product-name {
       font-size: 27px;
-      font-weight: 760;
-      letter-spacing: -.03em;
+      font-weight: 800;
+      letter-spacing: -.035em;
     }
 
     .product p {
       position: relative;
       z-index: 2;
-      margin: 28px 0;
       max-width: 470px;
+      margin: 28px 0 28px;
       color: #929ba6;
-      line-height: 1.72;
-    }
-
-    .product-links {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      line-height: 1.74;
     }
 
     .privacy-btn {
-      min-height: 44px;
+      position: relative;
+      z-index: 3;
+      min-height: 45px;
       padding: 0 18px;
       display: inline-flex;
       align-items: center;
@@ -366,14 +624,19 @@
       font-size: 13px;
       font-weight: 800;
       color: #071016;
-      background: linear-gradient(135deg,#c4f4ff,#6edcff);
-      box-shadow: 0 10px 28px rgba(0,190,255,.12);
+      background:
+        linear-gradient(135deg,#d1f8ff,#68ddff);
+      box-shadow:
+        0 10px 30px rgba(0,190,255,.15),
+        inset 0 1px 0 rgba(255,255,255,.6);
       transition: transform .2s ease, box-shadow .2s ease;
     }
 
     .privacy-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 14px 34px rgba(0,190,255,.18);
+      box-shadow:
+        0 15px 38px rgba(0,190,255,.22),
+        inset 0 1px 0 rgba(255,255,255,.7);
     }
 
     .privacy-btn::after {
@@ -387,102 +650,148 @@
       justify-content: center;
     }
 
-    .plus {
-      margin-bottom: 16px;
-      font-size: 64px;
-      opacity: .14;
-      font-weight: 200;
+    .coming-icon {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      border: 1px solid rgba(255,255,255,.075);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+      color: #aab3bd;
+      font-size: 30px;
+      font-weight: 250;
     }
+
+    /* =========================
+       ABOUT
+       ========================= */
 
     .about-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
       gap: 80px;
+      align-items: start;
     }
 
     .statement {
       margin: 0;
+      max-width: 540px;
       font-size: clamp(31px,4vw,49px);
       line-height: 1.14;
-      letter-spacing: -.045em;
+      letter-spacing: -.048em;
+    }
+
+    .statement span {
+      background:
+        linear-gradient(110deg, #fff, #8ee6ff 72%, #c2b5ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
     .about-text {
       margin-top: 0;
       color: #929ba6;
       font-size: 17px;
-      line-height: 1.85;
+      line-height: 1.88;
     }
 
     .values {
-      margin-top: 45px;
+      margin-top: 46px;
       display: grid;
       grid-template-columns: repeat(3,1fr);
       gap: 18px;
     }
 
     .value {
-      padding: 26px;
+      padding: 28px;
+      border-radius: 22px;
       border: 1px solid rgba(255,255,255,.07);
-      border-radius: 21px;
-      background: rgba(255,255,255,.022);
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.04), rgba(255,255,255,.015));
+      backdrop-filter: blur(8px);
+      transition:
+        transform .22s ease,
+        border-color .22s ease;
+    }
+
+    .value:hover {
+      transform: translateY(-4px);
+      border-color: rgba(103,221,255,.13);
     }
 
     .value span {
       color: #73e1ff;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: .15em;
     }
 
     .value h3 {
-      margin: 18px 0 10px;
+      margin: 19px 0 10px;
       font-size: 20px;
+      letter-spacing: -.02em;
     }
 
     .value p {
       margin: 0;
       color: #858e99;
-      line-height: 1.65;
+      line-height: 1.68;
       font-size: 14px;
     }
 
+    /* =========================
+       SUPPORT
+       ========================= */
+
     .support {
-      padding: 38px;
-      border-radius: 26px;
-      border: 1px solid rgba(255,255,255,.08);
+      padding: 40px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.085);
       background:
-        radial-gradient(circle at 85% 25%,rgba(0,190,255,.08),transparent 35%),
-        rgba(255,255,255,.025);
+        radial-gradient(circle at 84% 25%, rgba(0,190,255,.10), transparent 34%),
+        linear-gradient(145deg, rgba(255,255,255,.05), rgba(255,255,255,.016));
+      box-shadow:
+        0 30px 95px rgba(0,0,0,.24),
+        inset 0 1px 0 rgba(255,255,255,.03);
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 35px;
+      backdrop-filter: blur(10px);
     }
 
     .support h3 {
       margin: 0 0 9px;
-      font-size: 22px;
+      font-size: 23px;
+      letter-spacing: -.025em;
     }
 
     .support p {
       margin: 0;
       max-width: 650px;
       color: #8c95a0;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
+    /* =========================
+       FOOTER
+       ========================= */
+
     footer {
-      padding: 55px 0 65px;
+      padding: 58px 0 68px;
       border-top: 1px solid rgba(255,255,255,.06);
-      color: #6e7782;
+      color: #6f7883;
       font-size: 13px;
     }
 
     .footer-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
       gap: 20px;
       flex-wrap: wrap;
     }
@@ -494,51 +803,54 @@
     }
 
     .footer-brand img {
-      width: 28px;
-      height: 28px;
+      width: 29px;
+      height: 29px;
       object-fit: cover;
       border-radius: 8px;
     }
 
-    .footer-links {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-
     .footer-links a {
-      text-decoration: none;
       color: #87909b;
+      text-decoration: none;
       font-weight: 650;
     }
 
     .footer-links a:hover { color: white; }
 
-    @media (max-width: 850px) {
+    /* =========================
+       MOBILE
+       ========================= */
+
+    @media (max-width: 860px) {
       .nav-links { display: none; }
 
       .hero {
         min-height: auto;
-        padding: 80px 0 55px;
+        padding: 82px 0 62px;
       }
 
       .hero-grid,
       .about-grid {
         grid-template-columns: 1fr;
-        gap: 42px;
+        gap: 44px;
       }
 
-      .hero-visual { min-height: 340px; }
-      .hero-logo { width: 235px; }
-
-      .hero-visual::before {
-        width: 300px;
-        height: 300px;
+      .hero-visual {
+        min-height: 350px;
       }
 
-      .hero-visual::after {
-        width: 250px;
-        height: 250px;
+      .ring {
+        width: 285px;
+        height: 285px;
+      }
+
+      .halo {
+        width: 330px;
+        height: 330px;
+      }
+
+      .hero-logo-card {
+        width: 235px;
       }
 
       .products,
@@ -551,26 +863,57 @@
         align-items: flex-start;
       }
 
-      section { padding: 75px 0; }
+      section {
+        padding: 76px 0;
+      }
+
+      .giant-mark {
+        width: 420px;
+        height: 420px;
+        right: -170px;
+        top: 160px;
+        border-width: 40px;
+      }
     }
 
     @media (max-width: 520px) {
-      .wrap { width: calc(100% - 28px); }
+      .wrap {
+        width: calc(100% - 28px);
+      }
 
       h1 {
-        font-size: clamp(54px,17vw,76px);
+        font-size: clamp(54px,17vw,78px);
       }
 
       .product,
       .support {
-        padding: 26px;
+        padding: 27px;
         border-radius: 22px;
       }
 
       .game-icon {
-        width: 68px;
-        height: 68px;
-        border-radius: 18px;
+        width: 70px;
+        height: 70px;
+        border-radius: 19px;
+      }
+
+      .aurora {
+        opacity: .22;
+      }
+
+      .beam {
+        opacity: .28;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
       }
     }
   </style>
@@ -578,9 +921,16 @@
 
 <body>
 
+  <div class="bg">
+    <div class="aurora"></div>
+    <div class="giant-mark"></div>
+    <div class="beam"></div>
+  </div>
+
   <nav>
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">
+
+      <a class="brand" href="#top" aria-label="CanCore home">
         <img src="cancore-logo.png" alt="CanCore logo">
         <span>CanCore</span>
       </a>
@@ -590,6 +940,7 @@
         <a href="#about">About</a>
         <a href="#support">Support</a>
       </div>
+
     </div>
   </nav>
 
@@ -598,7 +949,10 @@
     <div class="wrap hero-grid">
 
       <div>
-        <div class="eyebrow">Apps · Games · Digital Experiences</div>
+
+        <div class="eyebrow">
+          Independent software & game studio
+        </div>
 
         <h1>
           Build.<br>
@@ -607,18 +961,33 @@
         </h1>
 
         <p class="hero-copy">
-          CanCore is an independent technology and digital entertainment brand
-          creating innovative apps and engaging game experiences.
+          CanCore creates <strong>polished apps</strong> and
+          <strong>memorable game experiences</strong> with a focus on
+          clean design, strong identity and long-term quality.
         </p>
 
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#work">Explore CanCore</a>
-          <a class="btn btn-secondary" href="#about">About CanCore</a>
+          <a class="btn btn-primary" href="#work">
+            Explore our work
+          </a>
+
+          <a class="btn btn-secondary" href="#about">
+            About CanCore
+          </a>
         </div>
+
       </div>
 
-      <div class="hero-visual">
-        <img class="hero-logo" src="cancore-logo.png" alt="CanCore">
+
+      <div class="hero-visual" aria-hidden="true">
+
+        <div class="halo"></div>
+        <div class="ring"></div>
+
+        <div class="hero-logo-card">
+          <img class="hero-logo" src="cancore-logo.png" alt="">
+        </div>
+
       </div>
 
     </div>
@@ -630,17 +999,22 @@
     <section id="work">
       <div class="wrap">
 
-        <div class="section-kicker">Our Work</div>
-        <h2>Apps & Games</h2>
+        <div class="section-head">
+          <div class="section-kicker">Our Work</div>
 
-        <p class="section-copy">
-          CanCore creates digital products with a focus on clean experiences,
-          strong identity and enjoyable interaction.
-        </p>
+          <h2>Apps & Games</h2>
+
+          <p class="section-copy">
+            CanCore builds digital products that feel clear, responsive and
+            distinct — from fast-paced games to useful applications.
+          </p>
+        </div>
+
 
         <div class="products">
 
           <article class="product">
+
             <div class="product-top">
 
               <img
@@ -662,26 +1036,35 @@
               it's too late.
             </p>
 
-            <div class="product-links">
-              <a class="privacy-btn" href="privacy.html">
-                Privacy Policy
-              </a>
-            </div>
+            <a
+              class="privacy-btn"
+              href="privacy.html"
+            >
+              Privacy Policy
+            </a>
+
           </article>
 
 
           <article class="product coming">
-            <div class="plus">+</div>
-            <div class="type">CanCore</div>
-            <div class="product-name">More experiences ahead</div>
+
+            <div class="coming-icon">+</div>
+
+            <div class="type">What’s Next</div>
+
+            <div class="product-name">
+              More from CanCore
+            </div>
 
             <p>
-              CanCore is built as a home for future games, applications and
-              digital products under one consistent identity.
+              New games, applications and digital experiences are planned.
+              CanCore is built to grow with every new release.
             </p>
+
           </article>
 
         </div>
+
       </div>
     </section>
 
@@ -692,34 +1075,42 @@
         <div class="about-grid">
 
           <div>
-            <div class="section-kicker">About CanCore</div>
+
+            <div class="section-kicker">
+              About CanCore
+            </div>
 
             <p class="statement">
               Technology and entertainment,
-              built with purpose.
+              <span>built with purpose.</span>
             </p>
+
           </div>
 
+
           <div>
+
             <p class="about-text">
               CanCore is an independent software and digital entertainment
-              brand focused on creating modern applications and engaging game
-              experiences.
+              brand focused on creating modern applications and engaging
+              game experiences.
             </p>
 
             <p class="about-text">
-              Our goal is simple: build products that feel polished, intuitive
-              and memorable — whether they are made for productivity,
-              entertainment or play.
+              The goal is simple: create products that feel polished,
+              intuitive and memorable — whether they are made for
+              productivity, entertainment or play.
             </p>
 
             <p class="about-text">
-              CanCore is designed as a long-term brand that can grow alongside
-              new projects and ideas.
+              CanCore is designed as a long-term brand with room for new
+              ideas, new platforms and new experiences.
             </p>
+
           </div>
 
         </div>
+
 
         <div class="values">
 
@@ -732,25 +1123,28 @@
             </p>
           </div>
 
+
           <div class="value">
             <span>02</span>
             <h3>Built to Engage</h3>
             <p>
-              Products designed around useful interaction, enjoyable moments
-              and a strong sense of identity.
+              Products shaped around useful interaction, enjoyable moments
+              and a distinct visual identity.
             </p>
           </div>
+
 
           <div class="value">
             <span>03</span>
             <h3>Long-Term Vision</h3>
             <p>
-              A brand created to support different types of software, games
-              and digital experiences over time.
+              One brand designed to support different kinds of software,
+              games and digital experiences over time.
             </p>
           </div>
 
         </div>
+
       </div>
     </section>
 
@@ -761,8 +1155,13 @@
         <div class="support">
 
           <div>
-            <div class="section-kicker">Support & Legal</div>
-            <h3>Privacy information</h3>
+            <div class="section-kicker">
+              Support & Legal
+            </div>
+
+            <h3>
+              Privacy information
+            </h3>
 
             <p>
               Privacy information for Escape Rush is available on its
@@ -770,11 +1169,15 @@
             </p>
           </div>
 
-          <a class="btn btn-secondary" href="privacy.html">
+          <a
+            class="btn btn-secondary"
+            href="privacy.html"
+          >
             View Privacy Policy
           </a>
 
         </div>
+
       </div>
     </section>
 
@@ -790,7 +1193,9 @@
       </div>
 
       <div class="footer-links">
-        <a href="privacy.html">Privacy Policy</a>
+        <a href="privacy.html">
+          Privacy Policy
+        </a>
       </div>
 
     </div>
