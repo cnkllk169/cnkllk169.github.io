@@ -4,682 +4,948 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Escape Rush</title>
+  <title>CanCore — Apps & Games</title>
+
+  <meta
+    name="description"
+    content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences."
+  >
+
+  <meta name="theme-color" content="#05070b">
+
+  <link
+    rel="icon"
+    href="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+  >
 
   <style>
+    :root {
+      --bg: #05070b;
+      --bg2: #090d14;
+      --text: #f6f8fa;
+      --muted: #949da9;
+      --cyan: #63ddff;
+      --cyan2: #00bfff;
+      --violet: #8a72ff;
+      --line: rgba(255,255,255,0.09);
+      --panel: rgba(255,255,255,0.04);
+      --max: 1180px;
+    }
+
     * {
       box-sizing: border-box;
     }
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #02030b;
-      color: white;
-      overflow-x: hidden;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      margin: 0;
       min-height: 100vh;
-    }
+      overflow-x: hidden;
 
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
 
-    /* ARKA PLAN */
-
-    .background {
-      position: fixed;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
+      color: var(--text);
 
       background:
         radial-gradient(
-          circle at 20% 20%,
-          rgba(0, 190, 255, 0.18),
+          circle at 10% 15%,
+          rgba(0, 190, 255, 0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 90% 45%,
+          rgba(124, 85, 255, 0.08),
           transparent 30%
         ),
-
-        radial-gradient(
-          circle at 82% 45%,
-          rgba(255, 0, 200, 0.15),
-          transparent 32%
-        ),
-
-        radial-gradient(
-          circle at 50% 100%,
-          rgba(80, 30, 255, 0.20),
-          transparent 38%
-        ),
-
         linear-gradient(
-          180deg,
-          #041120 0%,
-          #050416 45%,
-          #080313 100%
+          145deg,
+          #040609 0%,
+          #080b11 50%,
+          #040609 100%
         );
+
+      -webkit-font-smoothing: antialiased;
     }
 
-
-    /* NEON BULUTLAR */
-
-    .glow {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(110px);
-      opacity: 0.28;
-      pointer-events: none;
-    }
-
-    .glow-blue {
-      width: 520px;
-      height: 520px;
-      background: #00bfff;
-      top: -200px;
-      left: -160px;
-      animation: glowBlue 11s ease-in-out infinite alternate;
-    }
-
-    .glow-pink {
-      width: 550px;
-      height: 550px;
-      background: #ff00bf;
-      right: -220px;
-      top: 20%;
-      animation: glowPink 13s ease-in-out infinite alternate;
-    }
-
-    .glow-purple {
-      width: 650px;
-      height: 650px;
-      background: #5c2cff;
-      left: 25%;
-      bottom: -400px;
-      animation: glowPurple 15s ease-in-out infinite alternate;
-    }
-
-    @keyframes glowBlue {
-      from {
-        transform: translate(0, 0);
-      }
-
-      to {
-        transform: translate(100px, 80px);
-      }
-    }
-
-    @keyframes glowPink {
-      from {
-        transform: translate(0, 0);
-      }
-
-      to {
-        transform: translate(-120px, 60px);
-      }
-    }
-
-    @keyframes glowPurple {
-      from {
-        transform: translate(0, 0);
-      }
-
-      to {
-        transform: translate(70px, -80px);
-      }
-    }
-
-
-    /* UZAK KÜÇÜK YILDIZLAR */
-
-    .stars {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-    }
-
-    .star {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      border-radius: 50%;
-      background: white;
-      opacity: 0.5;
-
-      box-shadow:
-        0 0 4px rgba(255, 255, 255, 0.8);
-
-      animation: twinkle 3s ease-in-out infinite alternate;
-    }
-
-    @keyframes twinkle {
-      from {
-        opacity: 0.15;
-        transform: scale(0.7);
-      }
-
-      to {
-        opacity: 0.9;
-        transform: scale(1.3);
-      }
-    }
-
-
-    /* =========================
-       GERÇEK KAYAN YILDIZ
-       ========================= */
-
-    .meteor {
-      position: absolute;
-
-      left: -100px;
-
-      width: 4px;
-      height: 4px;
-
-      border-radius: 50%;
-
-      background: #ffffff;
-
-      opacity: 0;
-
-      z-index: 2;
-
-      pointer-events: none;
-
-      box-shadow:
-        0 0 3px white,
-        0 0 7px #87efff,
-        0 0 13px #00d9ff;
-
-      animation:
-        meteorMove 1.8s linear forwards;
-    }
-
-
-    /* YILDIZIN ARKASINDAKİ İNCE KUYRUK */
-
-    .meteor::before {
+    body::before {
       content: "";
-
-      position: absolute;
-
-      right: 2px;
-      top: 50%;
-
-      width: 105px;
-      height: 1px;
-
-      transform:
-        translateY(-50%);
-
-      transform-origin:
-        right center;
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
 
       background:
         linear-gradient(
           90deg,
-          transparent 0%,
-          rgba(0, 220, 255, 0.02) 15%,
-          rgba(0, 220, 255, 0.12) 42%,
-          rgba(100, 235, 255, 0.40) 70%,
-          rgba(220, 250, 255, 0.85) 100%
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          rgba(255,255,255,0.010) 1px,
+          transparent 1px
         );
 
-      filter:
-        drop-shadow(
-          0 0 2px
-          rgba(0, 220, 255, 0.55)
-        );
+      background-size: 72px 72px;
     }
 
+    a {
+      color: inherit;
+    }
 
-    /* PEMBE YILDIZ */
+    .wrap {
+      width: min(
+        var(--max),
+        calc(100% - 40px)
+      );
 
-    .meteor.pink {
+      margin: 0 auto;
+    }
+
+    /* NAV */
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+
+      background:
+        rgba(5, 7, 11, 0.76);
+
+      backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.06);
+    }
+
+    .nav-inner {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 30px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 12px;
+
+      text-decoration: none;
+
+      font-size: 20px;
+      font-weight: 750;
+    }
+
+    .brand img {
+      width: 42px;
+      height: 42px;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+
       box-shadow:
-        0 0 3px white,
-        0 0 7px #ff98e8,
-        0 0 13px #ff27ca;
+        0 0 28px
+        rgba(0, 198, 255, 0.15);
     }
 
-    .meteor.pink::before {
-      background:
-        linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(255, 0, 190, 0.02) 15%,
-          rgba(255, 0, 190, 0.12) 42%,
-          rgba(255, 100, 220, 0.40) 70%,
-          rgba(255, 220, 250, 0.85) 100%
-        );
-
-      filter:
-        drop-shadow(
-          0 0 2px
-          rgba(255, 0, 190, 0.55)
-        );
+    .nav-links {
+      display: flex;
+      gap: 28px;
     }
 
+    .nav-links a {
+      text-decoration: none;
 
-    /* KAYMA HAREKETİ */
+      color: #9ba3ae;
 
-    @keyframes meteorMove {
+      font-size: 14px;
 
-      0% {
-        opacity: 0;
-
-        transform:
-          translate(-60px, -40px)
-          rotate(28deg);
-      }
-
-      7% {
-        opacity: 1;
-      }
-
-      75% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-
-        transform:
-          translate(125vw, 62vh)
-          rotate(28deg);
-      }
+      transition: 0.2s ease;
     }
 
+    .nav-links a:hover {
+      color: white;
+    }
 
-    /* ANA SAYFA */
+    /* HERO */
 
-    .page {
-      position: relative;
-      z-index: 5;
+    .hero {
+      min-height: 78vh;
 
-      max-width: 900px;
-      min-height: 100vh;
-
-      margin: auto;
+      display: flex;
+      align-items: center;
 
       padding:
-        48px 20px 60px;
-
-      text-align: center;
+        105px 0
+        90px;
     }
 
+    .hero-grid {
+      width: 100%;
 
-    /* OYUN SİMGESİ */
+      display: grid;
 
-    .icon-wrap {
+      grid-template-columns:
+        minmax(0, 1.1fr)
+        minmax(300px, 0.9fr);
+
+      gap: 75px;
+
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin-bottom: 23px;
+
+      color: #71dfff;
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 0.20em;
+
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size:
+        clamp(
+          58px,
+          8.5vw,
+          112px
+        );
+
+      line-height: 0.89;
+
+      letter-spacing: -0.07em;
+
+      background:
+        linear-gradient(
+          115deg,
+          #ffffff 5%,
+          #e2edf2 43%,
+          #78e2ff 75%,
+          #bdafff 100%
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+
+      margin:
+        32px 0
+        0;
+
+      color: #949ca8;
+
+      font-size:
+        clamp(
+          18px,
+          2vw,
+          22px
+        );
+
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      margin-top: 38px;
+
+      display: flex;
+      gap: 13px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 50px;
+
+      padding:
+        0 23px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 13px;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 750;
+
+      border:
+        1px solid
+        transparent;
+
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .btn:hover {
+      transform:
+        translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #061015;
+
+      background:
+        linear-gradient(
+          135deg,
+          #c5f6ff,
+          #65d8ff
+        );
+
+      box-shadow:
+        0 14px 45px
+        rgba(0,190,255,0.13);
+    }
+
+    .btn-secondary {
+      color: #d8dde2;
+
+      background:
+        rgba(255,255,255,0.025);
+
+      border-color:
+        rgba(255,255,255,0.12);
+    }
+
+    /* HERO LOGO */
+
+    .hero-visual {
+      min-height: 450px;
+
       position: relative;
-      display: inline-block;
-      margin-bottom: 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .icon-wrap::before {
+    .hero-visual::before {
       content: "";
 
       position: absolute;
-      inset: -25px;
+
+      width: 390px;
+      height: 390px;
 
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(0, 220, 255, 0.30),
-          rgba(255, 0, 200, 0.12),
-          transparent 70%
+          rgba(0, 205, 255, 0.15),
+          rgba(100, 75, 255, 0.05) 47%,
+          transparent 72%
         );
 
-      filter: blur(20px);
-
-      animation:
-        iconPulse 3s
-        ease-in-out
-        infinite alternate;
-
-      z-index: -1;
+      filter: blur(15px);
     }
 
-    @keyframes iconPulse {
-      from {
-        transform: scale(0.9);
-        opacity: 0.6;
-      }
-
-      to {
-        transform: scale(1.15);
-        opacity: 1;
-      }
-    }
-
-    .game-icon {
-      display: block;
-
-      width: 155px;
-      height: 155px;
-
-      object-fit: cover;
-
-      border-radius: 33px;
-
-      border:
-        1px solid
-        rgba(0, 225, 255, 0.65);
-
-      box-shadow:
-        0 0 10px rgba(0, 220, 255, 0.8),
-        0 0 30px rgba(0, 150, 255, 0.45),
-        0 0 55px rgba(255, 0, 200, 0.28);
-
-      animation:
-        iconFloat 3.8s
-        ease-in-out
-        infinite;
-    }
-
-    @keyframes iconFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-9px);
-      }
-    }
-
-
-    /* BAŞLIK */
-
-    h1 {
-      margin: 25px 0 8px;
-
-      font-size:
-        clamp(
-          52px,
-          9vw,
-          100px
-        );
-
-      font-weight: 900;
-
-      letter-spacing: -3px;
-
-      line-height: 0.95;
-
-      background:
-        linear-gradient(
-          90deg,
-          #ffffff 0%,
-          #65eaff 25%,
-          #00c7ff 45%,
-          #ff42d0 70%,
-          #ffffff 100%
-        );
-
-      background-size: 300% auto;
-
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      animation:
-        titleGlow 6s
-        linear infinite;
-
-      filter:
-        drop-shadow(
-          0 0 17px
-          rgba(0, 200, 255, 0.22)
-        );
-    }
-
-    @keyframes titleGlow {
-      to {
-        background-position:
-          300% center;
-      }
-    }
-
-
-    .tagline {
-      margin-top: 18px;
-
-      color: #d0cede;
-
-      font-size:
-        clamp(
-          14px,
-          2.5vw,
-          20px
-        );
-
-      letter-spacing: 5px;
-
-      text-transform: uppercase;
-    }
-
-
-    .description {
-      max-width: 650px;
-
-      margin:
-        38px auto 40px;
-
-      color: #b1afc0;
-
-      font-size: 17px;
-
-      line-height: 1.8;
-    }
-
-
-    /* KART */
-
-    .card {
-      position: relative;
-
-      max-width: 650px;
-
-      margin: 0 auto;
-
-      padding: 34px 30px;
-
-      overflow: hidden;
-
-      border-radius: 24px;
-
-      background:
-        rgba(
-          8,
-          9,
-          29,
-          0.72
-        );
-
-      border:
-        1px solid
-        rgba(
-          0,
-          190,
-          255,
-          0.20
-        );
-
-      backdrop-filter: blur(18px);
-
-      box-shadow:
-        0 25px 80px
-        rgba(
-          0,
-          0,
-          0,
-          0.55
-        );
-    }
-
-
-    .card::before {
+    .hero-visual::after {
       content: "";
 
       position: absolute;
 
-      top: 0;
-      left: 10%;
+      width: 315px;
+      height: 315px;
 
-      width: 80%;
-      height: 1px;
+      border-radius: 50%;
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #00ddff,
-          #ff00c8,
-          transparent
-        );
+      border:
+        1px solid
+        rgba(130, 225, 255, 0.10);
 
       box-shadow:
-        0 0 15px
-        rgba(
-          0,
-          220,
-          255,
-          0.8
+        0 0 90px
+        rgba(0,180,255,0.06);
+    }
+
+    .hero-logo {
+      position: relative;
+
+      z-index: 2;
+
+      width:
+        min(
+          305px,
+          75vw
+        );
+
+      border-radius: 27%;
+
+      display: block;
+
+      filter:
+        drop-shadow(
+          0 25px 55px
+          rgba(0,0,0,0.58)
+        )
+        drop-shadow(
+          0 0 38px
+          rgba(0,200,255,0.11)
         );
     }
 
+    /* SECTIONS */
 
-    .card h2 {
-      margin-top: 0;
-      font-size: 28px;
+    section {
+      padding:
+        100px 0;
     }
 
+    .section-kicker {
+      margin-bottom: 12px;
 
-    .card p {
-      color: #bbb8cc;
-      line-height: 1.7;
+      color: var(--cyan);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      letter-spacing: 0.18em;
+
+      text-transform: uppercase;
     }
 
+    h2 {
+      margin: 0;
 
-    /* BUTON */
+      font-size:
+        clamp(
+          36px,
+          5vw,
+          58px
+        );
 
-    .button {
-      display: inline-block;
+      letter-spacing: -0.045em;
+    }
+
+    .section-copy {
+      max-width: 730px;
 
       margin-top: 18px;
 
-      padding: 15px 30px;
+      color: #9099a4;
 
-      border-radius: 14px;
+      line-height: 1.75;
 
-      color: white;
+      font-size: 17px;
+    }
 
-      text-decoration: none;
+    /* PRODUCTS */
 
-      font-weight: bold;
+    .products {
+      margin-top: 42px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          2,
+          minmax(0,1fr)
+        );
+
+      gap: 22px;
+    }
+
+    .product {
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 345px;
+
+      padding: 33px;
+
+      border-radius: 26px;
+
+      border:
+        1px solid
+        var(--line);
 
       background:
         linear-gradient(
-          135deg,
-          #008cff,
-          #663cff,
-          #ff28bd
+          145deg,
+          rgba(255,255,255,0.052),
+          rgba(255,255,255,0.016)
         );
-
-      background-size: 200%;
 
       box-shadow:
-        0 10px 35px
-        rgba(
-          70,
-          70,
-          255,
-          0.35
-        );
-
-      transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        background-position 0.25s ease;
+        0 30px 80px
+        rgba(0,0,0,0.25);
     }
 
-    .button:hover {
-      transform:
-        translateY(-4px)
-        scale(1.03);
+    .product::before {
+      content: "";
 
-      background-position:
-        right center;
+      position: absolute;
 
-      box-shadow:
-        0 15px 50px
-        rgba(
-          0,
-          210,
-          255,
-          0.35
+      width: 270px;
+      height: 270px;
+
+      right: -100px;
+      top: -100px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(0,190,255,0.11),
+          transparent 70%
         );
     }
 
+    .product-top {
+      position: relative;
 
-    .support {
-      margin-top: 30px;
-      color: #767487;
+      z-index: 2;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 18px;
+    }
+
+    .game-icon {
+      width: 80px;
+      height: 80px;
+
+      object-fit: cover;
+
+      border-radius: 21px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      box-shadow:
+        0 14px 36px
+        rgba(0,0,0,0.35);
+    }
+
+    .type {
+      margin-bottom: 7px;
+
+      color: #67ddff;
+
+      font-size: 11px;
+      font-weight: 800;
+
+      letter-spacing: 0.15em;
+
+      text-transform: uppercase;
+    }
+
+    .product-name {
+      font-size: 27px;
+
+      font-weight: 760;
+
+      letter-spacing: -0.03em;
+    }
+
+    .product p {
+      position: relative;
+
+      z-index: 2;
+
+      margin:
+        28px 0;
+
+      max-width: 470px;
+
+      color: #929ba6;
+
+      line-height: 1.72;
+    }
+
+    .product-links {
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+    .small-btn {
+      display: inline-flex;
+
+      align-items: center;
+
+      min-height: 42px;
+
+      padding:
+        0 17px;
+
+      border-radius: 11px;
+
+      text-decoration: none;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      color: #dce5ea;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      background:
+        rgba(255,255,255,0.025);
+
+      transition: 0.2s ease;
+    }
+
+    .small-btn:hover {
+      border-color:
+        rgba(99,221,255,0.40);
+
+      color: white;
+    }
+
+    .coming {
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+    }
+
+    .plus {
+      margin-bottom: 16px;
+
+      font-size: 64px;
+
+      opacity: 0.14;
+
+      font-weight: 200;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        0.9fr
+        1.1fr;
+
+      gap: 80px;
+    }
+
+    .statement {
+      margin: 0;
+
+      font-size:
+        clamp(
+          31px,
+          4vw,
+          49px
+        );
+
+      line-height: 1.14;
+
+      letter-spacing: -0.045em;
+    }
+
+    .about-text {
+      margin-top: 0;
+
+      color: #929ba6;
+
+      font-size: 17px;
+
+      line-height: 1.85;
+    }
+
+    /* VALUES */
+
+    .values {
+      margin-top: 45px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+
+      gap: 18px;
+    }
+
+    .value {
+      padding: 26px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.07);
+
+      border-radius: 21px;
+
+      background:
+        rgba(255,255,255,0.022);
+    }
+
+    .value span {
+      color: #73e1ff;
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 0.15em;
+    }
+
+    .value h3 {
+      margin:
+        18px 0
+        10px;
+
+      font-size: 20px;
+    }
+
+    .value p {
+      margin: 0;
+
+      color: #858e99;
+
+      line-height: 1.65;
+
       font-size: 14px;
     }
 
+    /* SUPPORT */
+
+    .support {
+      padding: 38px;
+
+      border-radius: 26px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      background:
+        radial-gradient(
+          circle at 85% 25%,
+          rgba(0,190,255,0.08),
+          transparent 35%
+        ),
+        rgba(255,255,255,0.025);
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 35px;
+    }
+
+    .support h3 {
+      margin:
+        0 0
+        9px;
+
+      font-size: 22px;
+    }
+
+    .support p {
+      margin: 0;
+
+      max-width: 650px;
+
+      color: #8c95a0;
+
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
 
     footer {
-      margin-top: 55px;
-      color: #565466;
+      padding:
+        55px 0
+        65px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      color: #6e7782;
+
       font-size: 13px;
     }
 
+    .footer-inner {
+      display: flex;
 
-    /* TELEFON */
+      justify-content: space-between;
 
-    @media (max-width: 600px) {
+      align-items: center;
 
-      .page {
-        padding-top: 35px;
+      gap: 20px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .footer-brand img {
+      width: 28px;
+      height: 28px;
+
+      object-fit: cover;
+
+      border-radius: 8px;
+    }
+
+    .footer-links {
+      display: flex;
+
+      gap: 22px;
+
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+
+      color: #7c8590;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
       }
 
-      .game-icon {
-        width: 130px;
-        height: 130px;
-        border-radius: 28px;
+      .hero {
+        min-height: auto;
+
+        padding:
+          80px 0
+          55px;
       }
 
-      h1 {
-        letter-spacing: -2px;
+      .hero-grid,
+      .about-grid {
+        grid-template-columns:
+          1fr;
+
+        gap: 42px;
       }
 
-      .tagline {
-        letter-spacing: 3px;
+      .hero-visual {
+        min-height: 340px;
       }
 
-      .description {
-        font-size: 16px;
+      .hero-logo {
+        width: 235px;
       }
 
-      .card {
-        padding: 30px 20px;
+      .hero-visual::before {
+        width: 300px;
+        height: 300px;
+      }
+
+      .hero-visual::after {
+        width: 250px;
+        height: 250px;
+      }
+
+      .products {
+        grid-template-columns:
+          1fr;
+      }
+
+      .values {
+        grid-template-columns:
+          1fr;
+      }
+
+      .support {
+        flex-direction: column;
+
+        align-items: flex-start;
+      }
+
+      section {
+        padding:
+          75px 0;
       }
     }
 
+    @media (max-width: 520px) {
 
-    @media (prefers-reduced-motion: reduce) {
+      .wrap {
+        width:
+          calc(100% - 28px);
+      }
 
-      *,
-      *::before,
-      *::after {
-        animation-duration:
-          0.01ms !important;
+      h1 {
+        font-size:
+          clamp(
+            54px,
+            17vw,
+            76px
+          );
+      }
 
-        animation-iteration-count:
-          1 !important;
+      .product,
+      .support {
+        padding: 26px;
+
+        border-radius: 22px;
+      }
+
+      .game-icon {
+        width: 68px;
+        height: 68px;
+
+        border-radius: 18px;
       }
     }
 
@@ -689,221 +955,478 @@
 
 <body>
 
+  <nav>
 
-  <div class="background">
-
-    <div
-      class="stars"
-      id="stars">
-    </div>
-
-    <div
-      class="glow glow-blue">
-    </div>
-
-    <div
-      class="glow glow-pink">
-    </div>
-
-    <div
-      class="glow glow-purple">
-    </div>
-
-    <div
-      id="meteor-container">
-    </div>
-
-  </div>
-
-
-  <main class="page">
-
-
-    <div class="icon-wrap">
-
-      <img
-        class="game-icon"
-        src="escape-rush-icon.png"
-        alt="Escape Rush icon"
-      >
-
-    </div>
-
-
-    <h1>
-      ESCAPE RUSH
-    </h1>
-
-
-    <div class="tagline">
-      Escape • Survive • Keep Moving
-    </div>
-
-
-    <p class="description">
-      Enter a neon world where speed,
-      timing and fast reactions are everything.
-      Keep moving and escape before it's too late.
-    </p>
-
-
-    <section class="card">
-
-      <h2>
-        Enter the Rush
-      </h2>
-
-      <p>
-        Escape Rush is a fast-paced mobile game
-        available on Android.
-      </p>
-
+    <div class="wrap nav-inner">
 
       <a
-        class="button"
-        href="privacy.html"
+        class="brand"
+        href="#top"
       >
-        Privacy Policy
+
+        <img
+          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+          alt="CanCore logo"
+        >
+
+        <span>
+          CanCore
+        </span>
+
       </a>
 
 
-      <div class="support">
-        Support information is available on the
-        Escape Rush Google Play Store page.
+      <div class="nav-links">
+
+        <a href="#work">
+          Apps & Games
+        </a>
+
+        <a href="#about">
+          About
+        </a>
+
+        <a href="#support">
+          Support
+        </a>
+
+      </div>
+
+    </div>
+
+  </nav>
+
+
+
+  <header
+    class="hero"
+    id="top"
+  >
+
+    <div class="wrap hero-grid">
+
+
+      <div>
+
+        <div class="eyebrow">
+          Apps · Games · Digital Experiences
+        </div>
+
+
+        <h1>
+          Build.<br>
+          Play.<br>
+          Evolve.
+        </h1>
+
+
+        <p class="hero-copy">
+          CanCore is an independent technology
+          and digital entertainment brand creating
+          innovative apps and engaging game experiences.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            class="btn btn-primary"
+            href="#work"
+          >
+            Explore CanCore
+          </a>
+
+          <a
+            class="btn btn-secondary"
+            href="#about"
+          >
+            About CanCore
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="hero-visual">
+
+        <img
+          class="hero-logo"
+          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+          alt="CanCore"
+        >
+
+      </div>
+
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <section id="work">
+
+      <div class="wrap">
+
+
+        <div class="section-kicker">
+          Our Work
+        </div>
+
+
+        <h2>
+          Apps & Games
+        </h2>
+
+
+        <p class="section-copy">
+          CanCore creates digital products with a focus
+          on clean experiences, strong identity and
+          enjoyable interaction.
+        </p>
+
+
+
+        <div class="products">
+
+
+          <article class="product">
+
+
+            <div class="product-top">
+
+              <img
+                class="game-icon"
+                src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/escape-rush-icon.png"
+                alt="Escape Rush icon"
+              >
+
+
+              <div>
+
+                <div class="type">
+                  Mobile Game
+                </div>
+
+                <div class="product-name">
+                  Escape Rush
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <p>
+              A fast-paced mobile experience built
+              around speed, timing and quick reactions.
+              Keep moving, stay focused and escape
+              before it's too late.
+            </p>
+
+
+
+            <div class="product-links">
+
+              <a
+                class="small-btn"
+                href="https://cnkllk169.github.io/privacy.html"
+                target="_blank"
+                rel="noopener"
+              >
+                Privacy Policy
+              </a>
+
+            </div>
+
+
+          </article>
+
+
+
+          <article class="product coming">
+
+            <div class="plus">
+              +
+            </div>
+
+
+            <div class="type">
+              CanCore
+            </div>
+
+
+            <div class="product-name">
+              More experiences ahead
+            </div>
+
+
+            <p>
+              CanCore is built as a home for future
+              games, applications and digital products
+              under one consistent identity.
+            </p>
+
+
+          </article>
+
+
+        </div>
+
+
       </div>
 
     </section>
 
 
-    <footer>
-      © 2026 Escape Rush.
-      All rights reserved.
-    </footer>
+
+
+    <section id="about">
+
+      <div class="wrap">
+
+
+        <div class="about-grid">
+
+
+          <div>
+
+            <div class="section-kicker">
+              About CanCore
+            </div>
+
+
+            <p class="statement">
+              Technology and entertainment,
+              built with purpose.
+            </p>
+
+          </div>
+
+
+
+          <div>
+
+            <p class="about-text">
+              CanCore is an independent software
+              and digital entertainment brand focused
+              on creating modern applications and
+              engaging game experiences.
+            </p>
+
+
+            <p class="about-text">
+              Our goal is simple: build products
+              that feel polished, intuitive and
+              memorable — whether they are made for
+              productivity, entertainment or play.
+            </p>
+
+
+            <p class="about-text">
+              CanCore is designed as a long-term
+              brand that can grow alongside new
+              projects and ideas.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+
+        <div class="values">
+
+
+          <div class="value">
+
+            <span>
+              01
+            </span>
+
+            <h3>
+              Thoughtful Design
+            </h3>
+
+            <p>
+              Clear interfaces, intentional details
+              and experiences that feel considered
+              from the first interaction.
+            </p>
+
+          </div>
+
+
+
+          <div class="value">
+
+            <span>
+              02
+            </span>
+
+            <h3>
+              Built to Engage
+            </h3>
+
+            <p>
+              Products designed around useful
+              interaction, enjoyable moments and
+              a strong sense of identity.
+            </p>
+
+          </div>
+
+
+
+          <div class="value">
+
+            <span>
+              03
+            </span>
+
+            <h3>
+              Long-Term Vision
+            </h3>
+
+            <p>
+              A brand created to support different
+              types of software, games and digital
+              experiences over time.
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+
+
+    <section id="support">
+
+      <div class="wrap">
+
+
+        <div class="support">
+
+
+          <div>
+
+            <div class="section-kicker">
+              Support & Legal
+            </div>
+
+
+            <h3>
+              Privacy & advertising information
+            </h3>
+
+
+            <p>
+              Privacy information for Escape Rush
+              and advertising authorization
+              information are available below.
+            </p>
+
+          </div>
+
+
+
+          <div class="hero-actions">
+
+
+            <a
+              class="btn btn-secondary"
+              href="https://cnkllk169.github.io/privacy.html"
+              target="_blank"
+              rel="noopener"
+            >
+              Privacy Policy
+            </a>
+
+
+            <a
+              class="btn btn-secondary"
+              href="https://cnkllk169.github.io/app-ads.txt"
+              target="_blank"
+              rel="noopener"
+            >
+              app-ads.txt
+            </a>
+
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+    </section>
 
 
   </main>
 
 
-  <script>
 
-    /* UZAK YILDIZLAR */
+  <footer>
 
-    const starsContainer =
-      document.getElementById("stars");
-
-    for (let i = 0; i < 100; i++) {
-
-      const star =
-        document.createElement("div");
-
-      star.className = "star";
-
-      star.style.left =
-        Math.random() * 100 + "%";
-
-      star.style.top =
-        Math.random() * 100 + "%";
-
-      const size =
-        Math.random() * 1.5 + 0.6;
-
-      star.style.width =
-        size + "px";
-
-      star.style.height =
-        size + "px";
-
-      star.style.animationDelay =
-        Math.random() * 4 + "s";
-
-      star.style.animationDuration =
-        2 +
-        Math.random() * 4 +
-        "s";
-
-      starsContainer.appendChild(star);
-    }
+    <div class="wrap footer-inner">
 
 
-    /* KAYAN YILDIZLAR */
+      <div class="footer-brand">
 
-    const meteorContainer =
-      document.getElementById(
-        "meteor-container"
-      );
+        <img
+          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+          alt=""
+        >
 
+        <span>
+          © 2026 CanCore. All rights reserved.
+        </span>
 
-    function createMeteor() {
-
-      const meteor =
-        document.createElement("div");
-
-      meteor.className =
-        "meteor";
+      </div>
 
 
-      /* Bazıları pembe */
-      if (Math.random() > 0.65) {
-        meteor.classList.add("pink");
-      }
+
+      <div class="footer-links">
+
+        <a
+          href="https://cnkllk169.github.io/privacy.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Privacy
+        </a>
 
 
-      /* Üstten alta farklı yerlerden gelsin */
-      meteor.style.top =
-        6 +
-        Math.random() * 58 +
-        "%";
+        <a
+          href="https://cnkllk169.github.io/app-ads.txt"
+          target="_blank"
+          rel="noopener"
+        >
+          app-ads.txt
+        </a>
+
+      </div>
 
 
-      /* Kuyruk boyu ufak değişsin */
-      const tailLength =
-        75 +
-        Math.random() * 45;
+    </div>
 
-      meteor.style.setProperty(
-        "--tail",
-        tailLength + "px"
-      );
-
-
-      meteorContainer.appendChild(
-        meteor
-      );
-
-
-      setTimeout(
-        function() {
-          meteor.remove();
-        },
-        2000
-      );
-    }
-
-
-    function scheduleMeteor() {
-
-      createMeteor();
-
-
-      /* Çok kalabalık olmasın */
-      const nextMeteor =
-        2400 +
-        Math.random() * 3000;
-
-
-      setTimeout(
-        scheduleMeteor,
-        nextMeteor
-      );
-    }
-
-
-    setTimeout(
-      scheduleMeteor,
-      800
-    );
-
-  </script>
+  </footer>
 
 
 </body>
