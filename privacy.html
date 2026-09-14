@@ -1,140 +1,817 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Escape Rush - Privacy Policy</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Escape Rush — Privacy Policy | CanCore
+  </title>
+
+  <meta
+    name="description"
+    content="Privacy Policy for Escape Rush, a mobile game by CanCore."
+  >
+
+  <meta
+    name="theme-color"
+    content="#05070b"
+  >
+
+  <link
+    rel="icon"
+    href="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+  >
 
   <style>
+
+    :root {
+      --bg: #05070b;
+      --text: #f4f7fa;
+      --muted: #9aa3ae;
+      --cyan: #67ddff;
+      --violet: #9b86ff;
+      --line: rgba(255,255,255,0.09);
+      --panel: rgba(255,255,255,0.035);
+      --max: 900px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0b0b15;
-      color: white;
-      line-height: 1.7;
+
+      min-height: 100vh;
+
+      color: var(--text);
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 12% 10%,
+          rgba(0,190,255,0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 88% 42%,
+          rgba(122,82,255,0.08),
+          transparent 30%
+        ),
+        linear-gradient(
+          145deg,
+          #040609 0%,
+          #090c12 50%,
+          #050609 100%
+        );
+
+      -webkit-font-smoothing:
+        antialiased;
     }
 
-    .container {
-      max-width: 850px;
-      margin: auto;
-      padding: 50px 20px;
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: -1;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.012) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          rgba(255,255,255,0.010) 1px,
+          transparent 1px
+        );
+
+      background-size:
+        72px 72px;
     }
 
-    h1, h2 {
-      color: white;
-    }
-
-    p {
-      color: #ccccdd;
-    }
 
     a {
-      color: #8b8bff;
+      color: inherit;
     }
 
-    .back {
-      display: inline-block;
-      margin-bottom: 30px;
+
+    .wrap {
+      width:
+        min(
+          var(--max),
+          calc(100% - 40px)
+        );
+
+      margin:
+        0 auto;
     }
+
+
+    /* TOP BAR */
+
+    .topbar {
+      position: sticky;
+
+      top: 0;
+
+      z-index: 20;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      background:
+        rgba(5,7,11,0.78);
+
+      backdrop-filter:
+        blur(18px);
+    }
+
+
+    .topbar-inner {
+      min-height: 72px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 11px;
+
+      text-decoration: none;
+
+      font-weight: 750;
+    }
+
+
+    .brand img {
+      width: 40px;
+
+      height: 40px;
+
+      object-fit: cover;
+
+      border-radius: 11px;
+
+      box-shadow:
+        0 0 26px
+        rgba(0,195,255,0.14);
+    }
+
+
+    .back {
+      color: #9ba4af;
+
+      text-decoration: none;
+
+      font-size: 14px;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .back:hover {
+      color: white;
+    }
+
+
+    /* PAGE */
+
+    main {
+      padding:
+        85px 0
+        100px;
+    }
+
+
+    .label {
+      margin-bottom:
+        16px;
+
+      color: var(--cyan);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing:
+        0.18em;
+
+      text-transform:
+        uppercase;
+    }
+
+
+    h1 {
+      margin: 0;
+
+      max-width: 780px;
+
+      font-size:
+        clamp(
+          45px,
+          8vw,
+          76px
+        );
+
+      line-height: 0.98;
+
+      letter-spacing:
+        -0.055em;
+
+      background:
+        linear-gradient(
+          110deg,
+          #ffffff 10%,
+          #dfeaf0 50%,
+          #76e0ff 78%,
+          #b9adff 100%
+        );
+
+      -webkit-background-clip:
+        text;
+
+      background-clip:
+        text;
+
+      color:
+        transparent;
+    }
+
+
+    .intro {
+      max-width: 720px;
+
+      margin:
+        25px 0
+        0;
+
+      color: #9aa3ae;
+
+      line-height: 1.75;
+
+      font-size: 17px;
+    }
+
+
+    .meta {
+      margin-top:
+        28px;
+
+      display:
+        inline-flex;
+
+      padding:
+        10px 14px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      border-radius:
+        10px;
+
+      background:
+        rgba(255,255,255,0.025);
+
+      color: #858e99;
+
+      font-size: 13px;
+    }
+
+
+    /* POLICY CARD */
+
+    .policy {
+      margin-top: 50px;
+
+      padding:
+        45px;
+
+      border-radius:
+        26px;
+
+      border:
+        1px solid
+        var(--line);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.045),
+          rgba(255,255,255,0.018)
+        );
+
+      box-shadow:
+        0 30px 90px
+        rgba(0,0,0,0.25);
+    }
+
+
+    .section {
+      padding:
+        34px 0;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.065);
+    }
+
+
+    .section:first-child {
+      padding-top: 0;
+    }
+
+
+    .section:last-child {
+      padding-bottom: 0;
+
+      border-bottom: 0;
+    }
+
+
+    h2 {
+      margin:
+        0 0
+        15px;
+
+      font-size: 22px;
+
+      letter-spacing:
+        -0.025em;
+    }
+
+
+    p {
+      margin:
+        0 0
+        15px;
+
+      color:
+        #9da6b1;
+
+      line-height:
+        1.8;
+
+      font-size:
+        16px;
+    }
+
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .policy a {
+      color: #76dfff;
+
+      text-decoration:
+        none;
+
+      border-bottom:
+        1px solid
+        rgba(118,223,255,0.25);
+    }
+
+
+    .policy a:hover {
+      color: white;
+
+      border-color:
+        rgba(255,255,255,0.45);
+    }
+
+
+    /* FOOTER */
+
+    footer {
+      padding:
+        50px 0
+        60px;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.06);
+
+      color:
+        #6f7884;
+
+      font-size:
+        13px;
+    }
+
+
+    .footer-inner {
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap: 20px;
+
+      flex-wrap:
+        wrap;
+    }
+
+
+    .footer-brand {
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap: 10px;
+    }
+
+
+    .footer-brand img {
+      width: 28px;
+
+      height: 28px;
+
+      object-fit: cover;
+
+      border-radius:
+        8px;
+    }
+
+
+    .footer-link {
+      color:
+        #7f8894;
+
+      text-decoration:
+        none;
+    }
+
+
+    .footer-link:hover {
+      color: white;
+    }
+
+
+    @media (max-width: 600px) {
+
+      .wrap {
+        width:
+          calc(100% - 28px);
+      }
+
+
+      main {
+        padding:
+          65px 0
+          75px;
+      }
+
+
+      .policy {
+        padding:
+          27px;
+
+        border-radius:
+          22px;
+      }
+
+
+      .section {
+        padding:
+          28px 0;
+      }
+
+
+      .brand span {
+        display:
+          none;
+      }
+
+    }
+
   </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-  <a class="back" href="index.html">← Back to Escape Rush</a>
+  <header class="topbar">
 
-  <h1>Privacy Policy</h1>
+    <div class="wrap topbar-inner">
 
-  <p><strong>Effective date:</strong> September 14, 2026</p>
 
-  <p>
-    This Privacy Policy explains how Escape Rush handles information
-    when you use the mobile game.
-  </p>
+      <a
+        class="brand"
+        href="https://cnkllk169.github.io/"
+      >
 
-  <h2>Information We Collect</h2>
+        <img
+          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+          alt="CanCore logo"
+        >
 
-  <p>
-    Escape Rush does not directly require users to create an account or
-    provide personal information in order to play the game.
-  </p>
+        <span>
+          CanCore
+        </span>
 
-  <p>
-    However, third-party services used by the game may automatically
-    collect certain information, such as device information, advertising
-    identifiers, IP address, approximate location, app interactions,
-    diagnostics, and advertising performance information.
-  </p>
+      </a>
 
-  <h2>Advertising</h2>
 
-  <p>
-    Escape Rush uses Google AdMob to display advertisements.
-    Google and its advertising partners may collect and process data
-    in order to provide, personalize, measure, and improve advertisements.
-  </p>
+      <a
+        class="back"
+        href="https://cnkllk169.github.io/"
+      >
+        ← Back to CanCore
+      </a>
 
-  <p>
-    You can learn more about how Google uses information from apps that
-    use its services here:
-  </p>
 
-  <p>
-    <a href="https://policies.google.com/technologies/partner-sites"
-       target="_blank">
-       How Google uses information from sites or apps that use its services
-    </a>
-  </p>
+    </div>
 
-  <h2>Consent and Advertising Preferences</h2>
+  </header>
 
-  <p>
-    Depending on your location, you may be asked for consent before
-    personalized advertising or certain advertising technologies are used.
-  </p>
 
-  <h2>Third-Party Services</h2>
 
-  <p>
-    The game may use third-party services such as Google AdMob and
-    Google Play Services. These services operate under their own
-    privacy policies.
-  </p>
+  <main>
 
-  <h2>Data Security</h2>
+    <div class="wrap">
 
-  <p>
-    Reasonable measures are taken to protect information processed
-    through the game and its third-party services. However, no method
-    of electronic transmission or storage is completely secure.
-  </p>
 
-  <h2>Children's Privacy</h2>
+      <div class="label">
+        Escape Rush · Legal
+      </div>
 
-  <p>
-    If you are a parent or guardian and believe that a child has provided
-    personal information through the game, please contact us so that
-    appropriate action can be taken.
-  </p>
 
-  <h2>Changes to This Privacy Policy</h2>
+      <h1>
+        Privacy Policy
+      </h1>
 
-  <p>
-    This Privacy Policy may be updated from time to time.
-    Any changes will be published on this page.
-  </p>
 
-  <h2>Contact</h2>
+      <p class="intro">
+        This Privacy Policy explains how Escape Rush,
+        a mobile game published by CanCore, handles
+        information when you use the game.
+      </p>
 
-  <p>
-    For privacy or support questions, please contact us using the
-    developer contact information provided on the Escape Rush
-    Google Play Store page.
-  </p>
 
-</div>
+      <div class="meta">
+        Effective date: September 14, 2026
+      </div>
+
+
+
+      <article class="policy">
+
+
+        <section class="section">
+
+          <h2>
+            Information We Collect
+          </h2>
+
+          <p>
+            Escape Rush does not directly require users
+            to create an account or provide personal
+            information in order to play the game.
+          </p>
+
+          <p>
+            However, third-party services used by the
+            game may automatically collect certain
+            information, such as device information,
+            advertising identifiers, IP address,
+            approximate location, app interactions,
+            diagnostics, and advertising performance
+            information.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Advertising
+          </h2>
+
+          <p>
+            Escape Rush uses Google AdMob to display
+            advertisements.
+          </p>
+
+          <p>
+            Google and its advertising partners may
+            collect and process data in order to
+            provide, personalize, measure, and improve
+            advertisements.
+          </p>
+
+          <p>
+            You can learn more about how Google uses
+            information from apps that use its
+            services here:
+          </p>
+
+          <p>
+
+            <a
+              href="https://policies.google.com/technologies/partner-sites"
+              target="_blank"
+              rel="noopener"
+            >
+              How Google uses information from sites
+              or apps that use its services
+            </a>
+
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Consent and Advertising Preferences
+          </h2>
+
+          <p>
+            Depending on your location, you may be
+            asked for consent before personalized
+            advertising or certain advertising
+            technologies are used.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Third-Party Services
+          </h2>
+
+          <p>
+            The game may use third-party services such
+            as Google AdMob and Google Play Services.
+            These services operate under their own
+            privacy policies.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Data Security
+          </h2>
+
+          <p>
+            Reasonable measures are taken to protect
+            information processed through the game and
+            its third-party services. However, no
+            method of electronic transmission or
+            storage is completely secure.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Children's Privacy
+          </h2>
+
+          <p>
+            If you are a parent or guardian and
+            believe that a child has provided personal
+            information through the game, please
+            contact us so that appropriate action can
+            be taken.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Changes to This Privacy Policy
+          </h2>
+
+          <p>
+            This Privacy Policy may be updated from
+            time to time. Any changes will be
+            published on this page.
+          </p>
+
+        </section>
+
+
+
+        <section class="section">
+
+          <h2>
+            Contact
+          </h2>
+
+          <p>
+            For privacy or support questions, please
+            contact us using the developer contact
+            information provided on the Escape Rush
+            Google Play Store page.
+          </p>
+
+        </section>
+
+
+      </article>
+
+
+    </div>
+
+  </main>
+
+
+
+  <footer>
+
+    <div class="wrap footer-inner">
+
+
+      <div class="footer-brand">
+
+        <img
+          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
+          alt=""
+        >
+
+        <span>
+          © 2026 CanCore. All rights reserved.
+        </span>
+
+      </div>
+
+
+      <a
+        class="footer-link"
+        href="https://cnkllk169.github.io/"
+      >
+        CanCore Home
+      </a>
+
+
+    </div>
+
+  </footer>
+
 
 </body>
+
 </html>
