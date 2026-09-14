@@ -5,99 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>CanCore — Apps, Games & Digital Experiences</title>
-  <meta name="description" content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences.">
-  <meta name="theme-color" content="#06080c">
 
+  <meta
+    name="description"
+    content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences."
+  >
+
+  <meta name="theme-color" content="#05070b">
   <link rel="icon" href="cancore-logo.png">
 
   <style>
     :root {
-      --bg: #05070a;
-      --bg-soft: #090d13;
-      --panel: rgba(255,255,255,.045);
-      --panel-strong: rgba(255,255,255,.065);
-      --line: rgba(255,255,255,.09);
-      --text: #f5f7fa;
-      --muted: #929ba8;
-      --cyan: #64ddff;
-      --cyan-soft: rgba(71, 208, 255, .16);
+      --bg: #05070b;
+      --bg2: #090d14;
+      --text: #f6f8fa;
+      --muted: #98a1ad;
+      --muted2: #79828d;
+      --cyan: #67dfff;
+      --cyan2: #00bfff;
       --violet: #8c78ff;
-      --violet-soft: rgba(132, 105, 255, .12);
-      --radius: 26px;
+      --line: rgba(255,255,255,.085);
+      --panel: rgba(255,255,255,.038);
       --max: 1180px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
       color: var(--text);
-      background:
-        radial-gradient(circle at 12% 10%, rgba(0, 185, 255, .11), transparent 28%),
-        radial-gradient(circle at 88% 45%, rgba(126, 85, 255, .08), transparent 30%),
-        radial-gradient(circle at 52% 100%, rgba(0, 180, 255, .05), transparent 35%),
-        linear-gradient(145deg, #040609 0%, #080b10 45%, #050609 100%);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+      background:
+        radial-gradient(circle at 12% 13%, rgba(0,190,255,.11), transparent 28%),
+        radial-gradient(circle at 88% 44%, rgba(123,86,255,.085), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(0,190,255,.045), transparent 34%),
+        linear-gradient(145deg, #040609 0%, #080b11 50%, #040609 100%);
     }
 
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: -2;
+      pointer-events: none;
       background:
-        linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px),
-        linear-gradient(rgba(255,255,255,.010) 1px, transparent 1px);
+        linear-gradient(90deg, rgba(255,255,255,.011) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.009) 1px, transparent 1px);
       background-size: 72px 72px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 86%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 88%);
     }
 
     body::after {
       content: "";
       position: fixed;
-      width: 520px;
-      height: 520px;
-      right: -230px;
-      top: 16%;
-      border-radius: 50%;
-      pointer-events: none;
+      width: 540px;
+      height: 540px;
+      right: -260px;
+      top: 12%;
       z-index: -1;
-      background: radial-gradient(circle, rgba(97, 218, 255, .08), transparent 68%);
-      filter: blur(8px);
+      pointer-events: none;
+      border-radius: 50%;
+      filter: blur(10px);
+      background: radial-gradient(circle, rgba(89,215,255,.07), transparent 70%);
     }
 
-    a {
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-    }
+    a { color: inherit; }
 
     .wrap {
       width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
-    /* NAV */
-
     nav {
       position: sticky;
       top: 0;
       z-index: 50;
       border-bottom: 1px solid rgba(255,255,255,.055);
-      background: rgba(5, 7, 10, .72);
+      background: rgba(5,7,11,.74);
       backdrop-filter: blur(18px);
     }
 
@@ -106,7 +95,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
+      gap: 30px;
     }
 
     .brand {
@@ -114,82 +103,77 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      font-weight: 760;
       font-size: 20px;
-      letter-spacing: -.5px;
+      font-weight: 760;
+      letter-spacing: -.4px;
     }
 
-    .brand-logo {
+    .brand img {
       width: 42px;
       height: 42px;
-      border-radius: 12px;
       object-fit: cover;
-      box-shadow: 0 0 28px rgba(0, 197, 255, .14);
+      border-radius: 12px;
+      box-shadow: 0 0 28px rgba(0,198,255,.14);
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
       gap: 28px;
+      align-items: center;
     }
 
     .nav-links a {
       text-decoration: none;
+      color: #9ba4af;
       font-size: 14px;
-      color: #9aa2ad;
       transition: color .2s ease;
     }
 
-    .nav-links a:hover {
-      color: white;
-    }
-
-    /* HERO */
+    .nav-links a:hover { color: white; }
 
     .hero {
-      position: relative;
       min-height: 78vh;
       display: flex;
       align-items: center;
-      padding: 110px 0 95px;
+      padding: 108px 0 92px;
     }
 
     .hero-grid {
       width: 100%;
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
-      gap: 80px;
+      grid-template-columns: minmax(0,1.1fr) minmax(300px,.9fr);
+      gap: 74px;
       align-items: center;
     }
 
     .eyebrow {
-      margin-bottom: 24px;
+      margin-bottom: 23px;
+      color: #72e0ff;
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .22em;
+      letter-spacing: .20em;
       text-transform: uppercase;
-      color: #77e1ff;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(58px, 8.6vw, 112px);
+      font-size: clamp(58px,8.5vw,112px);
       line-height: .89;
-      letter-spacing: -.075em;
+      letter-spacing: -.07em;
       font-weight: 820;
       background:
-        linear-gradient(112deg, #ffffff 4%, #e4edf1 42%, #88e6ff 72%, #c2b7ff 100%);
+        linear-gradient(115deg,#fff 5%,#e2edf2 42%,#7fe4ff 74%,#c1b4ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-copy {
-      max-width: 650px;
+      max-width: 660px;
       margin: 32px 0 0;
-      font-size: clamp(18px, 2vw, 22px);
-      line-height: 1.65;
-      color: #939ba7;
+      color: #959eaa;
+      font-size: clamp(18px,2vw,22px);
+      line-height: 1.66;
     }
 
     .hero-actions {
@@ -202,103 +186,71 @@
     .btn {
       min-height: 50px;
       padding: 0 23px;
-      border-radius: 13px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border-radius: 13px;
       text-decoration: none;
       font-size: 14px;
-      font-weight: 750;
+      font-weight: 760;
       border: 1px solid transparent;
       transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
-      color: #061016;
-      background: linear-gradient(135deg, #c4f5ff, #66d8ff);
-      box-shadow: 0 14px 45px rgba(0, 190, 255, .13);
+      color: #061015;
+      background: linear-gradient(135deg,#c5f6ff,#65d8ff);
+      box-shadow: 0 14px 45px rgba(0,190,255,.13);
     }
 
     .btn-secondary {
-      color: #d7dde2;
-      border-color: rgba(255,255,255,.12);
+      color: #d9dee3;
       background: rgba(255,255,255,.025);
+      border-color: rgba(255,255,255,.12);
     }
 
     .hero-visual {
-      min-height: 470px;
+      min-height: 450px;
       position: relative;
       display: grid;
       place-items: center;
-    }
-
-    .hero-visual::before,
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
     }
 
     .hero-visual::before {
+      content: "";
+      position: absolute;
       width: 390px;
       height: 390px;
+      border-radius: 50%;
       background:
-        radial-gradient(circle, rgba(0, 204, 255, .15), rgba(107, 78, 255, .045) 48%, transparent 72%);
-      filter: blur(14px);
+        radial-gradient(circle,rgba(0,205,255,.15),rgba(100,75,255,.05) 47%,transparent 72%);
+      filter: blur(15px);
     }
 
     .hero-visual::after {
-      width: 315px;
-      height: 315px;
-      border: 1px solid rgba(137, 222, 255, .09);
-      box-shadow:
-        0 0 90px rgba(0, 176, 255, .055),
-        inset 0 0 50px rgba(120, 86, 255, .025);
-    }
-
-    .hero-logo-shell {
-      position: relative;
-      z-index: 2;
-      width: min(315px, 74vw);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
-    }
-
-    .hero-logo-shell::before {
       content: "";
       position: absolute;
-      inset: 7%;
-      border-radius: 28%;
-      background: rgba(255,255,255,.015);
-      border: 1px solid rgba(255,255,255,.055);
-      transform: rotate(8deg);
+      width: 315px;
+      height: 315px;
+      border-radius: 50%;
+      border: 1px solid rgba(130,225,255,.10);
+      box-shadow: 0 0 90px rgba(0,180,255,.06);
     }
 
     .hero-logo {
       position: relative;
       z-index: 2;
-      width: 100%;
-      border-radius: 28%;
+      width: min(305px,75vw);
       display: block;
+      border-radius: 27%;
       filter:
-        drop-shadow(0 24px 55px rgba(0,0,0,.58))
-        drop-shadow(0 0 38px rgba(0, 198, 255, .10));
+        drop-shadow(0 25px 55px rgba(0,0,0,.58))
+        drop-shadow(0 0 38px rgba(0,200,255,.11));
     }
 
-    /* COMMON */
-
-    section {
-      padding: 100px 0;
-    }
-
-    .section-head {
-      margin-bottom: 42px;
-    }
+    section { padding: 100px 0; }
 
     .section-kicker {
       margin-bottom: 12px;
@@ -311,57 +263,46 @@
 
     h2 {
       margin: 0;
-      font-size: clamp(36px, 5vw, 58px);
+      font-size: clamp(36px,5vw,58px);
       letter-spacing: -.045em;
-      line-height: 1.02;
     }
 
     .section-copy {
       max-width: 730px;
       margin-top: 18px;
-      color: #9099a5;
+      color: #919aa5;
+      line-height: 1.76;
       font-size: 17px;
-      line-height: 1.75;
     }
 
-    /* WORK */
-
     .products {
+      margin-top: 42px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2,minmax(0,1fr));
       gap: 22px;
     }
 
-    .product-card {
+    .product {
       position: relative;
       overflow: hidden;
-      min-height: 345px;
+      min-height: 350px;
       padding: 33px;
+      border-radius: 26px;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
       background:
-        linear-gradient(145deg, rgba(255,255,255,.052), rgba(255,255,255,.018));
-      box-shadow: 0 30px 85px rgba(0,0,0,.24);
+        linear-gradient(145deg,rgba(255,255,255,.052),rgba(255,255,255,.016));
+      box-shadow: 0 30px 80px rgba(0,0,0,.25);
     }
 
-    .product-card::before {
+    .product::before {
       content: "";
       position: absolute;
       width: 270px;
       height: 270px;
-      right: -95px;
-      top: -90px;
+      right: -100px;
+      top: -100px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 190, 255, .11), transparent 68%);
-      pointer-events: none;
-    }
-
-    .product-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(125deg, transparent 30%, rgba(255,255,255,.018), transparent 70%);
+      background: radial-gradient(circle,rgba(0,190,255,.11),transparent 70%);
     }
 
     .product-top {
@@ -372,18 +313,18 @@
       gap: 18px;
     }
 
-    .product-icon {
+    .game-icon {
       width: 80px;
       height: 80px;
-      border-radius: 21px;
       object-fit: cover;
+      border-radius: 21px;
       border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 13px 34px rgba(0,0,0,.34);
+      box-shadow: 0 14px 36px rgba(0,0,0,.35);
     }
 
-    .product-type {
+    .type {
       margin-bottom: 7px;
-      color: #69ddff;
+      color: #67ddff;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: .15em;
@@ -396,26 +337,48 @@
       letter-spacing: -.03em;
     }
 
-    .product-desc {
+    .product p {
       position: relative;
       z-index: 2;
+      margin: 28px 0;
       max-width: 470px;
-      margin: 28px 0 28px;
       color: #929ba6;
       line-height: 1.72;
     }
 
-    .text-link {
+    .product-links {
       position: relative;
-      z-index: 2;
-      color: #dce6eb;
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: none;
+      z-index: 3;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .text-link:hover {
-      color: #72dfff;
+    .privacy-btn {
+      min-height: 44px;
+      padding: 0 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+      color: #071016;
+      background: linear-gradient(135deg,#c4f4ff,#6edcff);
+      box-shadow: 0 10px 28px rgba(0,190,255,.12);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .privacy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px rgba(0,190,255,.18);
+    }
+
+    .privacy-btn::after {
+      content: "↗";
+      font-size: 13px;
     }
 
     .coming {
@@ -424,27 +387,22 @@
       justify-content: center;
     }
 
-    .coming-mark {
-      margin-bottom: 17px;
+    .plus {
+      margin-bottom: 16px;
       font-size: 64px;
-      line-height: 1;
       opacity: .14;
       font-weight: 200;
     }
-
-    /* ABOUT */
 
     .about-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
       gap: 80px;
-      align-items: start;
     }
 
-    .about-statement {
+    .statement {
       margin: 0;
-      max-width: 520px;
-      font-size: clamp(31px, 4vw, 49px);
+      font-size: clamp(31px,4vw,49px);
       line-height: 1.14;
       letter-spacing: -.045em;
     }
@@ -453,16 +411,14 @@
       margin-top: 0;
       color: #929ba6;
       font-size: 17px;
-      line-height: 1.86;
+      line-height: 1.85;
     }
 
-    /* VALUES */
-
-    .value-grid {
+    .values {
+      margin-top: 45px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3,1fr);
       gap: 18px;
-      margin-top: 36px;
     }
 
     .value {
@@ -472,62 +428,54 @@
       background: rgba(255,255,255,.022);
     }
 
-    .value-number {
-      color: #78e1ff;
+    .value span {
+      color: #73e1ff;
       font-size: 12px;
-      letter-spacing: .16em;
       font-weight: 800;
+      letter-spacing: .15em;
     }
 
     .value h3 {
-      margin: 19px 0 10px;
+      margin: 18px 0 10px;
       font-size: 20px;
-      letter-spacing: -.02em;
     }
 
     .value p {
       margin: 0;
-      color: #838d99;
+      color: #858e99;
       line-height: 1.65;
       font-size: 14px;
     }
 
-    /* SUPPORT */
-
-    .support-card {
-      position: relative;
-      overflow: hidden;
+    .support {
       padding: 38px;
-      border-radius: var(--radius);
+      border-radius: 26px;
       border: 1px solid rgba(255,255,255,.08);
       background:
-        radial-gradient(circle at 85% 25%, rgba(70, 204, 255, .08), transparent 34%),
+        radial-gradient(circle at 85% 25%,rgba(0,190,255,.08),transparent 35%),
         rgba(255,255,255,.025);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 34px;
+      align-items: center;
+      gap: 35px;
     }
 
-    .support-card h3 {
+    .support h3 {
       margin: 0 0 9px;
       font-size: 22px;
-      letter-spacing: -.025em;
     }
 
-    .support-card p {
-      max-width: 650px;
+    .support p {
       margin: 0;
-      color: #88919c;
+      max-width: 650px;
+      color: #8c95a0;
       line-height: 1.7;
     }
 
-    /* FOOTER */
-
     footer {
-      padding: 56px 0 66px;
+      padding: 55px 0 65px;
       border-top: 1px solid rgba(255,255,255,.06);
-      color: #69727e;
+      color: #6e7782;
       font-size: 13px;
     }
 
@@ -535,7 +483,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 22px;
+      gap: 20px;
       flex-wrap: wrap;
     }
 
@@ -546,38 +494,32 @@
     }
 
     .footer-brand img {
-      width: 27px;
-      height: 27px;
+      width: 28px;
+      height: 28px;
       object-fit: cover;
       border-radius: 8px;
-      opacity: .82;
     }
 
     .footer-links {
       display: flex;
-      flex-wrap: wrap;
       gap: 22px;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
-      color: #7e8792;
       text-decoration: none;
+      color: #87909b;
+      font-weight: 650;
     }
 
-    .footer-links a:hover {
-      color: white;
-    }
+    .footer-links a:hover { color: white; }
 
-    /* RESPONSIVE */
-
-    @media (max-width: 860px) {
-      .nav-links {
-        display: none;
-      }
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
 
       .hero {
         min-height: auto;
-        padding: 82px 0 60px;
+        padding: 80px 0 55px;
       }
 
       .hero-grid,
@@ -586,17 +528,12 @@
         gap: 42px;
       }
 
-      .hero-visual {
-        min-height: 340px;
-      }
-
-      .hero-logo-shell {
-        width: 235px;
-      }
+      .hero-visual { min-height: 340px; }
+      .hero-logo { width: 235px; }
 
       .hero-visual::before {
-        width: 310px;
-        height: 310px;
+        width: 300px;
+        height: 300px;
       }
 
       .hero-visual::after {
@@ -604,66 +541,36 @@
         height: 250px;
       }
 
-      .products {
+      .products,
+      .values {
         grid-template-columns: 1fr;
       }
 
-      .value-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .support-card {
+      .support {
         flex-direction: column;
         align-items: flex-start;
       }
 
-      section {
-        padding: 76px 0;
-      }
+      section { padding: 75px 0; }
     }
 
     @media (max-width: 520px) {
-      .wrap {
-        width: min(var(--max), calc(100% - 28px));
-      }
-
-      .nav-inner {
-        min-height: 68px;
-      }
-
-      .brand-logo {
-        width: 38px;
-        height: 38px;
-      }
-
-      .hero {
-        padding-top: 68px;
-      }
+      .wrap { width: calc(100% - 28px); }
 
       h1 {
-        font-size: clamp(54px, 17vw, 78px);
+        font-size: clamp(54px,17vw,76px);
       }
 
-      .product-card,
-      .support-card {
+      .product,
+      .support {
         padding: 26px;
         border-radius: 22px;
       }
 
-      .product-icon {
+      .game-icon {
         width: 68px;
         height: 68px;
         border-radius: 18px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      * {
-        transition: none !important;
       }
     }
   </style>
@@ -673,8 +580,8 @@
 
   <nav>
     <div class="wrap nav-inner">
-      <a class="brand" href="#top" aria-label="CanCore home">
-        <img class="brand-logo" src="cancore-logo.png" alt="CanCore logo">
+      <a class="brand" href="#top">
+        <img src="cancore-logo.png" alt="CanCore logo">
         <span>CanCore</span>
       </a>
 
@@ -710,10 +617,8 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-        <div class="hero-logo-shell">
-          <img class="hero-logo" src="cancore-logo.png" alt="">
-        </div>
+      <div class="hero-visual">
+        <img class="hero-logo" src="cancore-logo.png" alt="CanCore">
       </div>
 
     </div>
@@ -725,61 +630,58 @@
     <section id="work">
       <div class="wrap">
 
-        <div class="section-head">
-          <div class="section-kicker">Our Work</div>
-          <h2>Apps & Games</h2>
+        <div class="section-kicker">Our Work</div>
+        <h2>Apps & Games</h2>
 
-          <p class="section-copy">
-            CanCore creates digital products with a focus on clean experiences,
-            strong identity and enjoyable interaction.
-          </p>
-        </div>
-
+        <p class="section-copy">
+          CanCore creates digital products with a focus on clean experiences,
+          strong identity and enjoyable interaction.
+        </p>
 
         <div class="products">
 
-          <article class="product-card">
+          <article class="product">
             <div class="product-top">
 
               <img
-                class="product-icon"
+                class="game-icon"
                 src="escape-rush-icon.png"
-                alt="Escape Rush app icon"
+                alt="Escape Rush icon"
               >
 
               <div>
-                <div class="product-type">Mobile Game</div>
+                <div class="type">Mobile Game</div>
                 <div class="product-name">Escape Rush</div>
               </div>
 
             </div>
 
-            <p class="product-desc">
+            <p>
               A fast-paced mobile experience built around speed, timing and
               quick reactions. Keep moving, stay focused and escape before
               it's too late.
             </p>
 
-            <a class="text-link" href="privacy.html">
-              Privacy Policy →
-            </a>
+            <div class="product-links">
+              <a class="privacy-btn" href="privacy.html">
+                Privacy Policy
+              </a>
+            </div>
           </article>
 
 
-          <article class="product-card coming">
-            <div class="coming-mark">+</div>
-
-            <div class="product-type">CanCore</div>
+          <article class="product coming">
+            <div class="plus">+</div>
+            <div class="type">CanCore</div>
             <div class="product-name">More experiences ahead</div>
 
-            <p class="product-desc">
+            <p>
               CanCore is built as a home for future games, applications and
-              digital products — all under one consistent identity.
+              digital products under one consistent identity.
             </p>
           </article>
 
         </div>
-
       </div>
     </section>
 
@@ -792,8 +694,9 @@
           <div>
             <div class="section-kicker">About CanCore</div>
 
-            <p class="about-statement">
-              Technology and entertainment, built with purpose.
+            <p class="statement">
+              Technology and entertainment,
+              built with purpose.
             </p>
           </div>
 
@@ -805,7 +708,7 @@
             </p>
 
             <p class="about-text">
-              The goal is simple: build products that feel polished, intuitive
+              Our goal is simple: build products that feel polished, intuitive
               and memorable — whether they are made for productivity,
               entertainment or play.
             </p>
@@ -818,11 +721,10 @@
 
         </div>
 
-
-        <div class="value-grid">
+        <div class="values">
 
           <div class="value">
-            <div class="value-number">01</div>
+            <span>01</span>
             <h3>Thoughtful Design</h3>
             <p>
               Clear interfaces, intentional details and experiences that feel
@@ -831,7 +733,7 @@
           </div>
 
           <div class="value">
-            <div class="value-number">02</div>
+            <span>02</span>
             <h3>Built to Engage</h3>
             <p>
               Products designed around useful interaction, enjoyable moments
@@ -840,7 +742,7 @@
           </div>
 
           <div class="value">
-            <div class="value-number">03</div>
+            <span>03</span>
             <h3>Long-Term Vision</h3>
             <p>
               A brand created to support different types of software, games
@@ -849,7 +751,6 @@
           </div>
 
         </div>
-
       </div>
     </section>
 
@@ -857,7 +758,7 @@
     <section id="support">
       <div class="wrap">
 
-        <div class="support-card">
+        <div class="support">
 
           <div>
             <div class="section-kicker">Support & Legal</div>
@@ -874,7 +775,6 @@
           </a>
 
         </div>
-
       </div>
     </section>
 
@@ -890,7 +790,7 @@
       </div>
 
       <div class="footer-links">
-        <a href="privacy.html">Privacy</a>
+        <a href="privacy.html">Privacy Policy</a>
       </div>
 
     </div>
