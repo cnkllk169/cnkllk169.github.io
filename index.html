@@ -4,31 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>CanCore — Apps & Games</title>
+  <title>CanCore — Apps, Games & Digital Experiences</title>
+  <meta name="description" content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences.">
+  <meta name="theme-color" content="#06080c">
 
-  <meta
-    name="description"
-    content="CanCore is an independent technology and digital entertainment brand creating innovative apps and engaging game experiences."
-  >
-
-  <meta name="theme-color" content="#05070b">
-
-  <link
-    rel="icon"
-    href="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
-  >
+  <link rel="icon" href="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.png">
 
   <style>
     :root {
-      --bg: #05070b;
-      --bg2: #090d14;
-      --text: #f6f8fa;
-      --muted: #949da9;
-      --cyan: #63ddff;
-      --cyan2: #00bfff;
-      --violet: #8a72ff;
-      --line: rgba(255,255,255,0.09);
-      --panel: rgba(255,255,255,0.04);
+      --bg: #05070a;
+      --bg-soft: #090d13;
+      --panel: rgba(255,255,255,.045);
+      --panel-strong: rgba(255,255,255,.065);
+      --line: rgba(255,255,255,.09);
+      --text: #f5f7fa;
+      --muted: #929ba8;
+      --cyan: #64ddff;
+      --cyan-soft: rgba(71, 208, 255, .16);
+      --violet: #8c78ff;
+      --violet-soft: rgba(132, 105, 255, .12);
+      --radius: 26px;
       --max: 1180px;
     }
 
@@ -44,35 +39,15 @@
       margin: 0;
       min-height: 100vh;
       overflow-x: hidden;
-
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
       color: var(--text);
-
       background:
-        radial-gradient(
-          circle at 10% 15%,
-          rgba(0, 190, 255, 0.10),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 90% 45%,
-          rgba(124, 85, 255, 0.08),
-          transparent 30%
-        ),
-        linear-gradient(
-          145deg,
-          #040609 0%,
-          #080b11 50%,
-          #040609 100%
-        );
-
+        radial-gradient(circle at 12% 10%, rgba(0, 185, 255, .11), transparent 28%),
+        radial-gradient(circle at 88% 45%, rgba(126, 85, 255, .08), transparent 30%),
+        radial-gradient(circle at 52% 100%, rgba(0, 180, 255, .05), transparent 35%),
+        linear-gradient(145deg, #040609 0%, #080b10 45%, #050609 100%);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     body::before {
@@ -80,32 +55,38 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -1;
-
+      z-index: -2;
       background:
-        linear-gradient(
-          90deg,
-          rgba(255,255,255,0.012) 1px,
-          transparent 1px
-        ),
-        linear-gradient(
-          rgba(255,255,255,0.010) 1px,
-          transparent 1px
-        );
-
+        linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.010) 1px, transparent 1px);
       background-size: 72px 72px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.75), transparent 86%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      right: -230px;
+      top: 16%;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      background: radial-gradient(circle, rgba(97, 218, 255, .08), transparent 68%);
+      filter: blur(8px);
     }
 
     a {
       color: inherit;
     }
 
-    .wrap {
-      width: min(
-        var(--max),
-        calc(100% - 40px)
-      );
+    img {
+      max-width: 100%;
+    }
 
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
       margin: 0 auto;
     }
 
@@ -115,65 +96,48 @@
       position: sticky;
       top: 0;
       z-index: 50;
-
-      background:
-        rgba(5, 7, 11, 0.76);
-
+      border-bottom: 1px solid rgba(255,255,255,.055);
+      background: rgba(5, 7, 10, .72);
       backdrop-filter: blur(18px);
-
-      border-bottom:
-        1px solid
-        rgba(255,255,255,0.06);
     }
 
     .nav-inner {
       min-height: 76px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      gap: 30px;
+      gap: 28px;
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-
       gap: 12px;
-
       text-decoration: none;
-
+      font-weight: 760;
       font-size: 20px;
-      font-weight: 750;
+      letter-spacing: -.5px;
     }
 
-    .brand img {
+    .brand-logo {
       width: 42px;
       height: 42px;
-
-      object-fit: cover;
-
       border-radius: 12px;
-
-      box-shadow:
-        0 0 28px
-        rgba(0, 198, 255, 0.15);
+      object-fit: cover;
+      box-shadow: 0 0 28px rgba(0, 197, 255, .14);
     }
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 28px;
     }
 
     .nav-links a {
       text-decoration: none;
-
-      color: #9ba3ae;
-
       font-size: 14px;
-
-      transition: 0.2s ease;
+      color: #9aa2ad;
+      transition: color .2s ease;
     }
 
     .nav-links a:hover {
@@ -183,471 +147,288 @@
     /* HERO */
 
     .hero {
+      position: relative;
       min-height: 78vh;
-
       display: flex;
       align-items: center;
-
-      padding:
-        105px 0
-        90px;
+      padding: 110px 0 95px;
     }
 
     .hero-grid {
       width: 100%;
-
       display: grid;
-
-      grid-template-columns:
-        minmax(0, 1.1fr)
-        minmax(300px, 0.9fr);
-
-      gap: 75px;
-
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 80px;
       align-items: center;
     }
 
     .eyebrow {
-      margin-bottom: 23px;
-
-      color: #71dfff;
-
+      margin-bottom: 24px;
       font-size: 12px;
       font-weight: 800;
-
-      letter-spacing: 0.20em;
-
+      letter-spacing: .22em;
       text-transform: uppercase;
+      color: #77e1ff;
     }
 
     h1 {
       margin: 0;
-
-      font-size:
-        clamp(
-          58px,
-          8.5vw,
-          112px
-        );
-
-      line-height: 0.89;
-
-      letter-spacing: -0.07em;
-
+      font-size: clamp(58px, 8.6vw, 112px);
+      line-height: .89;
+      letter-spacing: -.075em;
+      font-weight: 820;
       background:
-        linear-gradient(
-          115deg,
-          #ffffff 5%,
-          #e2edf2 43%,
-          #78e2ff 75%,
-          #bdafff 100%
-        );
-
+        linear-gradient(112deg, #ffffff 4%, #e4edf1 42%, #88e6ff 72%, #c2b7ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
-
       color: transparent;
     }
 
     .hero-copy {
       max-width: 650px;
-
-      margin:
-        32px 0
-        0;
-
-      color: #949ca8;
-
-      font-size:
-        clamp(
-          18px,
-          2vw,
-          22px
-        );
-
+      margin: 32px 0 0;
+      font-size: clamp(18px, 2vw, 22px);
       line-height: 1.65;
+      color: #939ba7;
     }
 
     .hero-actions {
       margin-top: 38px;
-
       display: flex;
       gap: 13px;
-
       flex-wrap: wrap;
     }
 
     .btn {
       min-height: 50px;
-
-      padding:
-        0 23px;
-
+      padding: 0 23px;
+      border-radius: 13px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-
-      border-radius: 13px;
-
       text-decoration: none;
-
       font-size: 14px;
       font-weight: 750;
-
-      border:
-        1px solid
-        transparent;
-
-      transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+      border: 1px solid transparent;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
     .btn:hover {
-      transform:
-        translateY(-2px);
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      color: #061015;
-
-      background:
-        linear-gradient(
-          135deg,
-          #c5f6ff,
-          #65d8ff
-        );
-
-      box-shadow:
-        0 14px 45px
-        rgba(0,190,255,0.13);
+      color: #061016;
+      background: linear-gradient(135deg, #c4f5ff, #66d8ff);
+      box-shadow: 0 14px 45px rgba(0, 190, 255, .13);
     }
 
     .btn-secondary {
-      color: #d8dde2;
-
-      background:
-        rgba(255,255,255,0.025);
-
-      border-color:
-        rgba(255,255,255,0.12);
+      color: #d7dde2;
+      border-color: rgba(255,255,255,.12);
+      background: rgba(255,255,255,.025);
     }
 
-    /* HERO LOGO */
-
     .hero-visual {
-      min-height: 450px;
-
+      min-height: 470px;
       position: relative;
+      display: grid;
+      place-items: center;
+    }
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-visual::before,
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
     }
 
     .hero-visual::before {
-      content: "";
-
-      position: absolute;
-
       width: 390px;
       height: 390px;
-
-      border-radius: 50%;
-
       background:
-        radial-gradient(
-          circle,
-          rgba(0, 205, 255, 0.15),
-          rgba(100, 75, 255, 0.05) 47%,
-          transparent 72%
-        );
-
-      filter: blur(15px);
+        radial-gradient(circle, rgba(0, 204, 255, .15), rgba(107, 78, 255, .045) 48%, transparent 72%);
+      filter: blur(14px);
     }
 
     .hero-visual::after {
-      content: "";
-
-      position: absolute;
-
       width: 315px;
       height: 315px;
-
-      border-radius: 50%;
-
-      border:
-        1px solid
-        rgba(130, 225, 255, 0.10);
-
+      border: 1px solid rgba(137, 222, 255, .09);
       box-shadow:
-        0 0 90px
-        rgba(0,180,255,0.06);
+        0 0 90px rgba(0, 176, 255, .055),
+        inset 0 0 50px rgba(120, 86, 255, .025);
+    }
+
+    .hero-logo-shell {
+      position: relative;
+      z-index: 2;
+      width: min(315px, 74vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .hero-logo-shell::before {
+      content: "";
+      position: absolute;
+      inset: 7%;
+      border-radius: 28%;
+      background: rgba(255,255,255,.015);
+      border: 1px solid rgba(255,255,255,.055);
+      transform: rotate(8deg);
     }
 
     .hero-logo {
       position: relative;
-
       z-index: 2;
-
-      width:
-        min(
-          305px,
-          75vw
-        );
-
-      border-radius: 27%;
-
+      width: 100%;
+      border-radius: 28%;
       display: block;
-
       filter:
-        drop-shadow(
-          0 25px 55px
-          rgba(0,0,0,0.58)
-        )
-        drop-shadow(
-          0 0 38px
-          rgba(0,200,255,0.11)
-        );
+        drop-shadow(0 24px 55px rgba(0,0,0,.58))
+        drop-shadow(0 0 38px rgba(0, 198, 255, .10));
     }
 
-    /* SECTIONS */
+    /* COMMON */
 
     section {
-      padding:
-        100px 0;
+      padding: 100px 0;
+    }
+
+    .section-head {
+      margin-bottom: 42px;
     }
 
     .section-kicker {
       margin-bottom: 12px;
-
       color: var(--cyan);
-
       font-size: 12px;
       font-weight: 800;
-
-      letter-spacing: 0.18em;
-
+      letter-spacing: .18em;
       text-transform: uppercase;
     }
 
     h2 {
       margin: 0;
-
-      font-size:
-        clamp(
-          36px,
-          5vw,
-          58px
-        );
-
-      letter-spacing: -0.045em;
+      font-size: clamp(36px, 5vw, 58px);
+      letter-spacing: -.045em;
+      line-height: 1.02;
     }
 
     .section-copy {
       max-width: 730px;
-
       margin-top: 18px;
-
-      color: #9099a4;
-
-      line-height: 1.75;
-
+      color: #9099a5;
       font-size: 17px;
+      line-height: 1.75;
     }
 
-    /* PRODUCTS */
+    /* WORK */
 
     .products {
-      margin-top: 42px;
-
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          2,
-          minmax(0,1fr)
-        );
-
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 22px;
     }
 
-    .product {
+    .product-card {
       position: relative;
-
       overflow: hidden;
-
       min-height: 345px;
-
       padding: 33px;
-
-      border-radius: 26px;
-
-      border:
-        1px solid
-        var(--line);
-
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
       background:
-        linear-gradient(
-          145deg,
-          rgba(255,255,255,0.052),
-          rgba(255,255,255,0.016)
-        );
-
-      box-shadow:
-        0 30px 80px
-        rgba(0,0,0,0.25);
+        linear-gradient(145deg, rgba(255,255,255,.052), rgba(255,255,255,.018));
+      box-shadow: 0 30px 85px rgba(0,0,0,.24);
     }
 
-    .product::before {
+    .product-card::before {
       content: "";
-
       position: absolute;
-
       width: 270px;
       height: 270px;
-
-      right: -100px;
-      top: -100px;
-
+      right: -95px;
+      top: -90px;
       border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 190, 255, .11), transparent 68%);
+      pointer-events: none;
+    }
 
-      background:
-        radial-gradient(
-          circle,
-          rgba(0,190,255,0.11),
-          transparent 70%
-        );
+    .product-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(125deg, transparent 30%, rgba(255,255,255,.018), transparent 70%);
     }
 
     .product-top {
       position: relative;
-
       z-index: 2;
-
       display: flex;
-
       align-items: center;
-
       gap: 18px;
     }
 
-    .game-icon {
+    .product-icon {
       width: 80px;
       height: 80px;
-
-      object-fit: cover;
-
       border-radius: 21px;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
-
-      box-shadow:
-        0 14px 36px
-        rgba(0,0,0,0.35);
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 13px 34px rgba(0,0,0,.34);
     }
 
-    .type {
+    .product-type {
       margin-bottom: 7px;
-
-      color: #67ddff;
-
+      color: #69ddff;
       font-size: 11px;
       font-weight: 800;
-
-      letter-spacing: 0.15em;
-
+      letter-spacing: .15em;
       text-transform: uppercase;
     }
 
     .product-name {
       font-size: 27px;
-
       font-weight: 760;
-
-      letter-spacing: -0.03em;
+      letter-spacing: -.03em;
     }
 
-    .product p {
+    .product-desc {
       position: relative;
-
       z-index: 2;
-
-      margin:
-        28px 0;
-
       max-width: 470px;
-
+      margin: 28px 0 28px;
       color: #929ba6;
-
       line-height: 1.72;
     }
 
-    .product-links {
+    .text-link {
       position: relative;
-
       z-index: 2;
-
-      display: flex;
-
-      gap: 12px;
-
-      flex-wrap: wrap;
-    }
-
-    .small-btn {
-      display: inline-flex;
-
-      align-items: center;
-
-      min-height: 42px;
-
-      padding:
-        0 17px;
-
-      border-radius: 11px;
-
-      text-decoration: none;
-
-      font-size: 13px;
+      color: #dce6eb;
+      font-size: 14px;
       font-weight: 700;
-
-      color: #dce5ea;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.10);
-
-      background:
-        rgba(255,255,255,0.025);
-
-      transition: 0.2s ease;
+      text-decoration: none;
     }
 
-    .small-btn:hover {
-      border-color:
-        rgba(99,221,255,0.40);
-
-      color: white;
+    .text-link:hover {
+      color: #72dfff;
     }
 
     .coming {
       display: flex;
-
       flex-direction: column;
-
       justify-content: center;
     }
 
-    .plus {
-      margin-bottom: 16px;
-
+    .coming-mark {
+      margin-bottom: 17px;
       font-size: 64px;
-
-      opacity: 0.14;
-
+      line-height: 1;
+      opacity: .14;
       font-weight: 200;
     }
 
@@ -655,226 +436,153 @@
 
     .about-grid {
       display: grid;
-
-      grid-template-columns:
-        0.9fr
-        1.1fr;
-
+      grid-template-columns: .9fr 1.1fr;
       gap: 80px;
+      align-items: start;
     }
 
-    .statement {
+    .about-statement {
       margin: 0;
-
-      font-size:
-        clamp(
-          31px,
-          4vw,
-          49px
-        );
-
+      max-width: 520px;
+      font-size: clamp(31px, 4vw, 49px);
       line-height: 1.14;
-
-      letter-spacing: -0.045em;
+      letter-spacing: -.045em;
     }
 
     .about-text {
       margin-top: 0;
-
       color: #929ba6;
-
       font-size: 17px;
-
-      line-height: 1.85;
+      line-height: 1.86;
     }
 
     /* VALUES */
 
-    .values {
-      margin-top: 45px;
-
+    .value-grid {
       display: grid;
-
-      grid-template-columns:
-        repeat(
-          3,
-          1fr
-        );
-
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+      margin-top: 36px;
     }
 
     .value {
       padding: 26px;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.07);
-
+      border: 1px solid rgba(255,255,255,.07);
       border-radius: 21px;
-
-      background:
-        rgba(255,255,255,0.022);
+      background: rgba(255,255,255,.022);
     }
 
-    .value span {
-      color: #73e1ff;
-
+    .value-number {
+      color: #78e1ff;
       font-size: 12px;
-
+      letter-spacing: .16em;
       font-weight: 800;
-
-      letter-spacing: 0.15em;
     }
 
     .value h3 {
-      margin:
-        18px 0
-        10px;
-
+      margin: 19px 0 10px;
       font-size: 20px;
+      letter-spacing: -.02em;
     }
 
     .value p {
       margin: 0;
-
-      color: #858e99;
-
+      color: #838d99;
       line-height: 1.65;
-
       font-size: 14px;
     }
 
     /* SUPPORT */
 
-    .support {
+    .support-card {
+      position: relative;
+      overflow: hidden;
       padding: 38px;
-
-      border-radius: 26px;
-
-      border:
-        1px solid
-        rgba(255,255,255,0.08);
-
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.08);
       background:
-        radial-gradient(
-          circle at 85% 25%,
-          rgba(0,190,255,0.08),
-          transparent 35%
-        ),
-        rgba(255,255,255,0.025);
-
+        radial-gradient(circle at 85% 25%, rgba(70, 204, 255, .08), transparent 34%),
+        rgba(255,255,255,.025);
       display: flex;
-
-      justify-content: space-between;
-
       align-items: center;
-
-      gap: 35px;
+      justify-content: space-between;
+      gap: 34px;
     }
 
-    .support h3 {
-      margin:
-        0 0
-        9px;
-
+    .support-card h3 {
+      margin: 0 0 9px;
       font-size: 22px;
+      letter-spacing: -.025em;
     }
 
-    .support p {
-      margin: 0;
-
+    .support-card p {
       max-width: 650px;
-
-      color: #8c95a0;
-
+      margin: 0;
+      color: #88919c;
       line-height: 1.7;
     }
 
     /* FOOTER */
 
     footer {
-      padding:
-        55px 0
-        65px;
-
-      border-top:
-        1px solid
-        rgba(255,255,255,0.06);
-
-      color: #6e7782;
-
+      padding: 56px 0 66px;
+      border-top: 1px solid rgba(255,255,255,.06);
+      color: #69727e;
       font-size: 13px;
     }
 
     .footer-inner {
       display: flex;
-
       justify-content: space-between;
-
       align-items: center;
-
-      gap: 20px;
-
+      gap: 22px;
       flex-wrap: wrap;
     }
 
     .footer-brand {
       display: flex;
-
       align-items: center;
-
       gap: 10px;
     }
 
     .footer-brand img {
-      width: 28px;
-      height: 28px;
-
+      width: 27px;
+      height: 27px;
       object-fit: cover;
-
       border-radius: 8px;
+      opacity: .82;
     }
 
     .footer-links {
       display: flex;
-
-      gap: 22px;
-
       flex-wrap: wrap;
+      gap: 22px;
     }
 
     .footer-links a {
+      color: #7e8792;
       text-decoration: none;
-
-      color: #7c8590;
     }
 
     .footer-links a:hover {
       color: white;
     }
 
-    /* MOBILE */
+    /* RESPONSIVE */
 
-    @media (max-width: 850px) {
-
+    @media (max-width: 860px) {
       .nav-links {
         display: none;
       }
 
       .hero {
         min-height: auto;
-
-        padding:
-          80px 0
-          55px;
+        padding: 82px 0 60px;
       }
 
       .hero-grid,
       .about-grid {
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
         gap: 42px;
       }
 
@@ -882,13 +590,13 @@
         min-height: 340px;
       }
 
-      .hero-logo {
+      .hero-logo-shell {
         width: 235px;
       }
 
       .hero-visual::before {
-        width: 300px;
-        height: 300px;
+        width: 310px;
+        height: 310px;
       }
 
       .hero-visual::after {
@@ -897,121 +605,93 @@
       }
 
       .products {
-        grid-template-columns:
-          1fr;
+        grid-template-columns: 1fr;
       }
 
-      .values {
-        grid-template-columns:
-          1fr;
+      .value-grid {
+        grid-template-columns: 1fr;
       }
 
-      .support {
+      .support-card {
         flex-direction: column;
-
         align-items: flex-start;
       }
 
       section {
-        padding:
-          75px 0;
+        padding: 76px 0;
       }
     }
 
     @media (max-width: 520px) {
-
       .wrap {
-        width:
-          calc(100% - 28px);
+        width: min(var(--max), calc(100% - 28px));
+      }
+
+      .nav-inner {
+        min-height: 68px;
+      }
+
+      .brand-logo {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero {
+        padding-top: 68px;
       }
 
       h1 {
-        font-size:
-          clamp(
-            54px,
-            17vw,
-            76px
-          );
+        font-size: clamp(54px, 17vw, 78px);
       }
 
-      .product,
-      .support {
+      .product-card,
+      .support-card {
         padding: 26px;
-
         border-radius: 22px;
       }
 
-      .game-icon {
+      .product-icon {
         width: 68px;
         height: 68px;
-
         border-radius: 18px;
       }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
-
 
 <body>
 
   <nav>
-
     <div class="wrap nav-inner">
-
-      <a
-        class="brand"
-        href="#top"
-      >
-
-        <img
-          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
-          alt="CanCore logo"
-        >
-
-        <span>
-          CanCore
-        </span>
-
+      <a class="brand" href="#top" aria-label="CanCore home">
+        <img class="brand-logo" src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.png" alt="CanCore logo">
+        <span>CanCore</span>
       </a>
 
-
       <div class="nav-links">
-
-        <a href="#work">
-          Apps & Games
-        </a>
-
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#support">
-          Support
-        </a>
-
+        <a href="#work">Apps & Games</a>
+        <a href="#about">About</a>
+        <a href="#support">Support</a>
       </div>
-
     </div>
-
   </nav>
 
 
-
-  <header
-    class="hero"
-    id="top"
-  >
-
+  <header class="hero" id="top">
     <div class="wrap hero-grid">
 
-
       <div>
-
-        <div class="eyebrow">
-          Apps · Games · Digital Experiences
-        </div>
-
+        <div class="eyebrow">Apps · Games · Digital Experiences</div>
 
         <h1>
           Build.<br>
@@ -1019,415 +699,203 @@
           Evolve.
         </h1>
 
-
         <p class="hero-copy">
-          CanCore is an independent technology
-          and digital entertainment brand creating
-          innovative apps and engaging game experiences.
+          CanCore is an independent technology and digital entertainment brand
+          creating innovative apps and engaging game experiences.
         </p>
 
-
         <div class="hero-actions">
-
-          <a
-            class="btn btn-primary"
-            href="#work"
-          >
-            Explore CanCore
-          </a>
-
-          <a
-            class="btn btn-secondary"
-            href="#about"
-          >
-            About CanCore
-          </a>
-
+          <a class="btn btn-primary" href="#work">Explore CanCore</a>
+          <a class="btn btn-secondary" href="#about">About CanCore</a>
         </div>
-
       </div>
 
-
-
-      <div class="hero-visual">
-
-        <img
-          class="hero-logo"
-          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
-          alt="CanCore"
-        >
-
+      <div class="hero-visual" aria-hidden="true">
+        <div class="hero-logo-shell">
+          <img class="hero-logo" src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.png" alt="">
+        </div>
       </div>
-
 
     </div>
-
   </header>
-
 
 
   <main>
 
-
     <section id="work">
-
       <div class="wrap">
 
+        <div class="section-head">
+          <div class="section-kicker">Our Work</div>
+          <h2>Apps & Games</h2>
 
-        <div class="section-kicker">
-          Our Work
+          <p class="section-copy">
+            CanCore creates digital products with a focus on clean experiences,
+            strong identity and enjoyable interaction.
+          </p>
         </div>
-
-
-        <h2>
-          Apps & Games
-        </h2>
-
-
-        <p class="section-copy">
-          CanCore creates digital products with a focus
-          on clean experiences, strong identity and
-          enjoyable interaction.
-        </p>
-
 
 
         <div class="products">
 
-
-          <article class="product">
-
-
+          <article class="product-card">
             <div class="product-top">
 
               <img
-                class="game-icon"
+                class="product-icon"
                 src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/escape-rush-icon.png"
-                alt="Escape Rush icon"
+                alt="Escape Rush app icon"
               >
 
-
               <div>
-
-                <div class="type">
-                  Mobile Game
-                </div>
-
-                <div class="product-name">
-                  Escape Rush
-                </div>
-
+                <div class="product-type">Mobile Game</div>
+                <div class="product-name">Escape Rush</div>
               </div>
 
             </div>
 
-
-
-            <p>
-              A fast-paced mobile experience built
-              around speed, timing and quick reactions.
-              Keep moving, stay focused and escape
-              before it's too late.
+            <p class="product-desc">
+              A fast-paced mobile experience built around speed, timing and
+              quick reactions. Keep moving, stay focused and escape before
+              it's too late.
             </p>
 
-
-
-            <div class="product-links">
-
-              <a
-                class="small-btn"
-                href="https://cnkllk169.github.io/privacy.html"
-                target="_blank"
-                rel="noopener"
-              >
-                Privacy Policy
-              </a>
-
-            </div>
-
-
+            <a class="text-link" href="https://cnkllk169.github.io/privacy.html">
+              Privacy Policy →
+            </a>
           </article>
 
 
+          <article class="product-card coming">
+            <div class="coming-mark">+</div>
 
-          <article class="product coming">
+            <div class="product-type">CanCore</div>
+            <div class="product-name">More experiences ahead</div>
 
-            <div class="plus">
-              +
-            </div>
-
-
-            <div class="type">
-              CanCore
-            </div>
-
-
-            <div class="product-name">
-              More experiences ahead
-            </div>
-
-
-            <p>
-              CanCore is built as a home for future
-              games, applications and digital products
-              under one consistent identity.
+            <p class="product-desc">
+              CanCore is built as a home for future games, applications and
+              digital products — all under one consistent identity.
             </p>
-
-
           </article>
-
 
         </div>
 
-
       </div>
-
     </section>
-
-
 
 
     <section id="about">
-
       <div class="wrap">
-
 
         <div class="about-grid">
 
-
           <div>
+            <div class="section-kicker">About CanCore</div>
 
-            <div class="section-kicker">
-              About CanCore
-            </div>
-
-
-            <p class="statement">
-              Technology and entertainment,
-              built with purpose.
+            <p class="about-statement">
+              Technology and entertainment, built with purpose.
             </p>
-
           </div>
 
-
-
           <div>
-
             <p class="about-text">
-              CanCore is an independent software
-              and digital entertainment brand focused
-              on creating modern applications and
-              engaging game experiences.
+              CanCore is an independent software and digital entertainment
+              brand focused on creating modern applications and engaging game
+              experiences.
             </p>
 
-
             <p class="about-text">
-              Our goal is simple: build products
-              that feel polished, intuitive and
-              memorable — whether they are made for
-              productivity, entertainment or play.
+              The goal is simple: build products that feel polished, intuitive
+              and memorable — whether they are made for productivity,
+              entertainment or play.
             </p>
 
-
             <p class="about-text">
-              CanCore is designed as a long-term
-              brand that can grow alongside new
-              projects and ideas.
+              CanCore is designed as a long-term brand that can grow alongside
+              new projects and ideas.
             </p>
-
           </div>
-
 
         </div>
 
 
-
-        <div class="values">
-
+        <div class="value-grid">
 
           <div class="value">
-
-            <span>
-              01
-            </span>
-
-            <h3>
-              Thoughtful Design
-            </h3>
-
+            <div class="value-number">01</div>
+            <h3>Thoughtful Design</h3>
             <p>
-              Clear interfaces, intentional details
-              and experiences that feel considered
-              from the first interaction.
+              Clear interfaces, intentional details and experiences that feel
+              considered from the first interaction.
             </p>
-
           </div>
-
-
 
           <div class="value">
-
-            <span>
-              02
-            </span>
-
-            <h3>
-              Built to Engage
-            </h3>
-
+            <div class="value-number">02</div>
+            <h3>Built to Engage</h3>
             <p>
-              Products designed around useful
-              interaction, enjoyable moments and
-              a strong sense of identity.
+              Products designed around useful interaction, enjoyable moments
+              and a strong sense of identity.
             </p>
-
           </div>
-
-
 
           <div class="value">
-
-            <span>
-              03
-            </span>
-
-            <h3>
-              Long-Term Vision
-            </h3>
-
+            <div class="value-number">03</div>
+            <h3>Long-Term Vision</h3>
             <p>
-              A brand created to support different
-              types of software, games and digital
-              experiences over time.
+              A brand created to support different types of software, games
+              and digital experiences over time.
             </p>
-
           </div>
-
 
         </div>
-
 
       </div>
-
     </section>
-
-
 
 
     <section id="support">
-
       <div class="wrap">
 
-
-        <div class="support">
-
+        <div class="support-card">
 
           <div>
-
-            <div class="section-kicker">
-              Support & Legal
-            </div>
-
-
-            <h3>
-              Privacy & advertising information
-            </h3>
-
+            <div class="section-kicker">Support & Legal</div>
+            <h3>Privacy information</h3>
 
             <p>
-              Privacy information for Escape Rush
-              and advertising authorization
-              information are available below.
+              Privacy information for Escape Rush is available on its
+              dedicated policy page.
             </p>
-
           </div>
 
-
-
-          <div class="hero-actions">
-
-
-            <a
-              class="btn btn-secondary"
-              href="https://cnkllk169.github.io/privacy.html"
-              target="_blank"
-              rel="noopener"
-            >
-              Privacy Policy
-            </a>
-
-
-            <a
-              class="btn btn-secondary"
-              href="https://cnkllk169.github.io/app-ads.txt"
-              target="_blank"
-              rel="noopener"
-            >
-              app-ads.txt
-            </a>
-
-
-          </div>
-
+          <a class="btn btn-secondary" href="https://cnkllk169.github.io/privacy.html">
+            View Privacy Policy
+          </a>
 
         </div>
 
-
       </div>
-
     </section>
-
 
   </main>
 
 
-
   <footer>
-
     <div class="wrap footer-inner">
 
-
       <div class="footer-brand">
-
-        <img
-          src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.jpg"
-          alt=""
-        >
-
-        <span>
-          © 2026 CanCore. All rights reserved.
-        </span>
-
+        <img src="https://raw.githubusercontent.com/cnkllk169/cnkllk169.github.io/main/cancore-logo.png" alt="">
+        <span>© 2026 CanCore. All rights reserved.</span>
       </div>
-
-
 
       <div class="footer-links">
-
-        <a
-          href="https://cnkllk169.github.io/privacy.html"
-          target="_blank"
-          rel="noopener"
-        >
-          Privacy
-        </a>
-
-
-        <a
-          href="https://cnkllk169.github.io/app-ads.txt"
-          target="_blank"
-          rel="noopener"
-        >
-          app-ads.txt
-        </a>
-
+        <a href="https://cnkllk169.github.io/privacy.html">Privacy</a>
+        <a href="https://cnkllk169.github.io/app-ads.txt">app-ads.txt</a>
       </div>
 
-
     </div>
-
   </footer>
-
 
 </body>
 </html>
