@@ -25,9 +25,7 @@
     }
 
 
-    /* =========================
-       ARKA PLAN
-    ========================== */
+    /* ARKA PLAN */
 
     .background {
       position: fixed;
@@ -63,9 +61,7 @@
     }
 
 
-    /* =========================
-       NEON BULUTLAR
-    ========================== */
+    /* NEON BULUTLAR */
 
     .glow {
       position: absolute;
@@ -78,36 +74,27 @@
     .glow-blue {
       width: 520px;
       height: 520px;
-
       background: #00bfff;
-
       top: -200px;
       left: -160px;
-
       animation: glowBlue 11s ease-in-out infinite alternate;
     }
 
     .glow-pink {
       width: 550px;
       height: 550px;
-
       background: #ff00bf;
-
       right: -220px;
       top: 20%;
-
       animation: glowPink 13s ease-in-out infinite alternate;
     }
 
     .glow-purple {
       width: 650px;
       height: 650px;
-
       background: #5c2cff;
-
       left: 25%;
       bottom: -400px;
-
       animation: glowPurple 15s ease-in-out infinite alternate;
     }
 
@@ -142,9 +129,7 @@
     }
 
 
-    /* =========================
-       KÜÇÜK UZAK YILDIZLAR
-    ========================== */
+    /* UZAK KÜÇÜK YILDIZLAR */
 
     .stars {
       position: absolute;
@@ -154,14 +139,10 @@
 
     .star {
       position: absolute;
-
       width: 2px;
       height: 2px;
-
       border-radius: 50%;
-
       background: white;
-
       opacity: 0.5;
 
       box-shadow:
@@ -184,108 +165,119 @@
 
 
     /* =========================
-       KAYAN YILDIZ
-    ========================== */
+       GERÇEK KAYAN YILDIZ
+       ========================= */
 
     .meteor {
       position: absolute;
 
-      width: 190px;
-      height: 2px;
+      left: -100px;
 
-      left: -250px;
+      width: 4px;
+      height: 4px;
 
-      border-radius: 999px;
+      border-radius: 50%;
+
+      background: #ffffff;
 
       opacity: 0;
 
+      z-index: 2;
+
       pointer-events: none;
 
-      transform: rotate(28deg);
+      box-shadow:
+        0 0 3px white,
+        0 0 7px #87efff,
+        0 0 13px #00d9ff;
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent 0%,
-          rgba(0, 220, 255, 0.03) 15%,
-          rgba(0, 220, 255, 0.10) 35%,
-          rgba(0, 220, 255, 0.30) 60%,
-          rgba(110, 240, 255, 0.75) 85%,
-          white 100%
-        );
-
-      filter:
-        drop-shadow(0 0 3px rgba(0, 220, 255, 0.9))
-        drop-shadow(0 0 7px rgba(0, 150, 255, 0.7));
-
-      animation: meteorMove 2.8s linear forwards;
+      animation:
+        meteorMove 1.8s linear forwards;
     }
 
 
-    /* Yıldızın öndeki parlak noktası */
-    .meteor::after {
+    /* YILDIZIN ARKASINDAKİ İNCE KUYRUK */
+
+    .meteor::before {
       content: "";
 
       position: absolute;
 
-      right: -2px;
+      right: 2px;
       top: 50%;
 
-      width: 5px;
-      height: 5px;
+      width: 105px;
+      height: 1px;
 
-      transform: translateY(-50%);
+      transform:
+        translateY(-50%);
 
-      border-radius: 50%;
+      transform-origin:
+        right center;
 
-      background: white;
-
-      box-shadow:
-        0 0 5px white,
-        0 0 10px #00ddff,
-        0 0 18px #008cff;
-    }
-
-
-    /* Pembe kayan yıldız */
-    .meteor.pink {
       background:
         linear-gradient(
           90deg,
           transparent 0%,
-          rgba(255, 0, 190, 0.03) 15%,
-          rgba(255, 0, 190, 0.10) 35%,
-          rgba(255, 0, 190, 0.30) 60%,
-          rgba(255, 100, 225, 0.75) 85%,
-          white 100%
+          rgba(0, 220, 255, 0.02) 15%,
+          rgba(0, 220, 255, 0.12) 42%,
+          rgba(100, 235, 255, 0.40) 70%,
+          rgba(220, 250, 255, 0.85) 100%
         );
 
       filter:
-        drop-shadow(0 0 3px rgba(255, 0, 190, 0.9))
-        drop-shadow(0 0 7px rgba(255, 0, 140, 0.7));
+        drop-shadow(
+          0 0 2px
+          rgba(0, 220, 255, 0.55)
+        );
     }
 
-    .meteor.pink::after {
+
+    /* PEMBE YILDIZ */
+
+    .meteor.pink {
       box-shadow:
-        0 0 5px white,
-        0 0 10px #ff34ce,
-        0 0 18px #ff0088;
+        0 0 3px white,
+        0 0 7px #ff98e8,
+        0 0 13px #ff27ca;
     }
 
+    .meteor.pink::before {
+      background:
+        linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 0, 190, 0.02) 15%,
+          rgba(255, 0, 190, 0.12) 42%,
+          rgba(255, 100, 220, 0.40) 70%,
+          rgba(255, 220, 250, 0.85) 100%
+        );
+
+      filter:
+        drop-shadow(
+          0 0 2px
+          rgba(255, 0, 190, 0.55)
+        );
+    }
+
+
+    /* KAYMA HAREKETİ */
 
     @keyframes meteorMove {
+
       0% {
         opacity: 0;
+
         transform:
-          translate(-100px, -60px)
+          translate(-60px, -40px)
           rotate(28deg);
       }
 
-      8% {
+      7% {
         opacity: 1;
       }
 
-      70% {
+      75% {
         opacity: 1;
       }
 
@@ -293,41 +285,35 @@
         opacity: 0;
 
         transform:
-          translate(135vw, 65vh)
+          translate(125vw, 62vh)
           rotate(28deg);
       }
     }
 
 
-    /* =========================
-       ANA SAYFA
-    ========================== */
+    /* ANA SAYFA */
 
     .page {
       position: relative;
       z-index: 5;
 
       max-width: 900px;
-
       min-height: 100vh;
 
       margin: auto;
 
-      padding: 65px 20px 60px;
+      padding:
+        48px 20px 60px;
 
       text-align: center;
     }
 
 
-    /* =========================
-       OYUN SİMGESİ
-    ========================== */
+    /* OYUN SİMGESİ */
 
     .icon-wrap {
       position: relative;
-
       display: inline-block;
-
       margin-bottom: 15px;
     }
 
@@ -335,7 +321,6 @@
       content: "";
 
       position: absolute;
-
       inset: -25px;
 
       border-radius: 50%;
@@ -350,7 +335,10 @@
 
       filter: blur(20px);
 
-      animation: iconPulse 3s ease-in-out infinite alternate;
+      animation:
+        iconPulse 3s
+        ease-in-out
+        infinite alternate;
 
       z-index: -1;
     }
@@ -370,22 +358,26 @@
     .game-icon {
       display: block;
 
-      width: 180px;
-      height: 180px;
+      width: 155px;
+      height: 155px;
 
       object-fit: cover;
 
-      border-radius: 36px;
+      border-radius: 33px;
 
       border:
-        1px solid rgba(0, 225, 255, 0.65);
+        1px solid
+        rgba(0, 225, 255, 0.65);
 
       box-shadow:
         0 0 10px rgba(0, 220, 255, 0.8),
         0 0 30px rgba(0, 150, 255, 0.45),
         0 0 55px rgba(255, 0, 200, 0.28);
 
-      animation: iconFloat 3.8s ease-in-out infinite;
+      animation:
+        iconFloat 3.8s
+        ease-in-out
+        infinite;
     }
 
     @keyframes iconFloat {
@@ -394,14 +386,12 @@
       }
 
       50% {
-        transform: translateY(-12px);
+        transform: translateY(-9px);
       }
     }
 
 
-    /* =========================
-       BAŞLIK
-    ========================== */
+    /* BAŞLIK */
 
     h1 {
       margin: 25px 0 8px;
@@ -434,7 +424,9 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
 
-      animation: titleGlow 6s linear infinite;
+      animation:
+        titleGlow 6s
+        linear infinite;
 
       filter:
         drop-shadow(
@@ -445,7 +437,8 @@
 
     @keyframes titleGlow {
       to {
-        background-position: 300% center;
+        background-position:
+          300% center;
       }
     }
 
@@ -471,7 +464,8 @@
     .description {
       max-width: 650px;
 
-      margin: 42px auto;
+      margin:
+        38px auto 40px;
 
       color: #b1afc0;
 
@@ -481,9 +475,7 @@
     }
 
 
-    /* =========================
-       KART
-    ========================== */
+    /* KART */
 
     .card {
       position: relative;
@@ -492,7 +484,7 @@
 
       margin: 0 auto;
 
-      padding: 38px 30px;
+      padding: 34px 30px;
 
       overflow: hidden;
 
@@ -561,21 +553,17 @@
 
     .card h2 {
       margin-top: 0;
-
       font-size: 28px;
     }
 
 
     .card p {
       color: #bbb8cc;
-
       line-height: 1.7;
     }
 
 
-    /* =========================
-       BUTON
-    ========================== */
+    /* BUTON */
 
     .button {
       display: inline-block;
@@ -638,37 +626,30 @@
 
     .support {
       margin-top: 30px;
-
       color: #767487;
-
       font-size: 14px;
     }
 
 
     footer {
-      margin-top: 70px;
-
+      margin-top: 55px;
       color: #565466;
-
       font-size: 13px;
     }
 
 
-    /* =========================
-       TELEFON
-    ========================== */
+    /* TELEFON */
 
     @media (max-width: 600px) {
 
       .page {
-        padding-top: 45px;
+        padding-top: 35px;
       }
 
       .game-icon {
-        width: 145px;
-        height: 145px;
-
-        border-radius: 30px;
+        width: 130px;
+        height: 130px;
+        border-radius: 28px;
       }
 
       h1 {
@@ -694,8 +675,11 @@
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
       }
     }
 
@@ -708,13 +692,26 @@
 
   <div class="background">
 
-    <div class="stars" id="stars"></div>
+    <div
+      class="stars"
+      id="stars">
+    </div>
 
-    <div class="glow glow-blue"></div>
-    <div class="glow glow-pink"></div>
-    <div class="glow glow-purple"></div>
+    <div
+      class="glow glow-blue">
+    </div>
 
-    <div id="meteor-container"></div>
+    <div
+      class="glow glow-pink">
+    </div>
+
+    <div
+      class="glow glow-purple">
+    </div>
+
+    <div
+      id="meteor-container">
+    </div>
 
   </div>
 
@@ -779,7 +776,8 @@
 
 
     <footer>
-      © 2026 Escape Rush. All rights reserved.
+      © 2026 Escape Rush.
+      All rights reserved.
     </footer>
 
 
@@ -788,9 +786,7 @@
 
   <script>
 
-    /* =========================
-       KÜÇÜK YILDIZLARI OLUŞTUR
-    ========================== */
+    /* UZAK YILDIZLAR */
 
     const starsContainer =
       document.getElementById("stars");
@@ -800,8 +796,7 @@
       const star =
         document.createElement("div");
 
-      star.className =
-        "star";
+      star.className = "star";
 
       star.style.left =
         Math.random() * 100 + "%";
@@ -810,7 +805,7 @@
         Math.random() * 100 + "%";
 
       const size =
-        Math.random() * 1.7 + 0.7;
+        Math.random() * 1.5 + 0.6;
 
       star.style.width =
         size + "px";
@@ -830,9 +825,7 @@
     }
 
 
-    /* =========================
-       KAYAN YILDIZ OLUŞTUR
-    ========================== */
+    /* KAYAN YILDIZLAR */
 
     const meteorContainer =
       document.getElementById(
@@ -849,24 +842,28 @@
         "meteor";
 
 
-      /* Bazen pembe olsun */
-      if (Math.random() > 0.55) {
+      /* Bazıları pembe */
+      if (Math.random() > 0.65) {
         meteor.classList.add("pink");
       }
 
 
-      /* Farklı yüksekliklerden geçsin */
+      /* Üstten alta farklı yerlerden gelsin */
       meteor.style.top =
-        5 +
-        Math.random() * 60 +
+        6 +
+        Math.random() * 58 +
         "%";
 
 
-      /* Kuyruk boyu biraz değişsin */
-      meteor.style.width =
-        130 +
-        Math.random() * 100 +
-        "px";
+      /* Kuyruk boyu ufak değişsin */
+      const tailLength =
+        75 +
+        Math.random() * 45;
+
+      meteor.style.setProperty(
+        "--tail",
+        tailLength + "px"
+      );
 
 
       meteorContainer.appendChild(
@@ -874,12 +871,11 @@
       );
 
 
-      /* Animasyon bitince sil */
       setTimeout(
         function() {
           meteor.remove();
         },
-        3000
+        2000
       );
     }
 
@@ -889,10 +885,10 @@
       createMeteor();
 
 
-      /* Her seferinde farklı aralık */
+      /* Çok kalabalık olmasın */
       const nextMeteor =
-        1600 +
-        Math.random() * 2500;
+        2400 +
+        Math.random() * 3000;
 
 
       setTimeout(
@@ -902,10 +898,9 @@
     }
 
 
-    /* İlk yıldız biraz sonra gelsin */
     setTimeout(
       scheduleMeteor,
-      900
+      800
     );
 
   </script>
